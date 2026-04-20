@@ -53,7 +53,12 @@ def main() -> None:
     details = json.loads(DETAILS_PATH.read_text(encoding="utf-8"))
 
     today = datetime.now().strftime("%Y-%m-%d")
-    report_path = REPORTS_DIR / f"{today}.md"
+    sequence = 1
+    while True:
+        report_path = REPORTS_DIR / f"{today}-{sequence:02d}.md"
+        if not report_path.exists():
+            break
+        sequence += 1
 
     lines: list[str] = []
     lines.append("# Schedule Extraction Benchmark Report v2")

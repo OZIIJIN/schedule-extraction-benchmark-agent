@@ -14,12 +14,7 @@ RAW_PATH = RAW_DIR / "benchmark_intermediate_raw.json"
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODELS = [
-    "qwen2.5:7b",
-    "qwen2.5:3b",
-    "qwen2.5:1.5b",
-    "llama3.2:1b",
-    "gemma3:4b",
-    "llama3.2:3b",
+    "gemma3:4b"
 ]
 
 PROMPT_TEMPLATE = """
