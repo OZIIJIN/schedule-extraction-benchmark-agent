@@ -1,0 +1,134 @@
+{
+  "models": {
+    "qwen2.5:7b": {
+      "case_count": 12,
+      "avg_score": 0.8796,
+      "avg_latency_sec": 6.027,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.9167,
+        "year": 0.75,
+        "month": 0.75,
+        "day": 0.75,
+        "dayOfWeek": 0.75,
+        "hour": 1.0,
+        "minute": 1.0,
+        "ampm": 1.0,
+        "type": 1.0
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 3,
+        "DAY_OF_WEEK_MISMATCH": 3,
+        "TITLE_EXTRACTION_FAILED": 1
+      }
+    },
+    "qwen2.5:3b": {
+      "case_count": 12,
+      "avg_score": 0.9722,
+      "avg_latency_sec": 3.38,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.75,
+        "year": 1.0,
+        "month": 1.0,
+        "day": 1.0,
+        "dayOfWeek": 1.0,
+        "hour": 1.0,
+        "minute": 1.0,
+        "ampm": 1.0,
+        "type": 1.0
+      },
+      "failure_counts": {
+        "TITLE_EXTRACTION_FAILED": 3
+      }
+    },
+    "qwen2.5:1.5b": {
+      "case_count": 12,
+      "avg_score": 0.9722,
+      "avg_latency_sec": 1.968,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.75,
+        "year": 1.0,
+        "month": 1.0,
+        "day": 1.0,
+        "dayOfWeek": 1.0,
+        "hour": 1.0,
+        "minute": 1.0,
+        "ampm": 1.0,
+        "type": 1.0
+      },
+      "failure_counts": {
+        "TITLE_EXTRACTION_FAILED": 3
+      }
+    },
+    "llama3.2:1b": {
+      "case_count": 12,
+      "avg_score": 0.4722,
+      "avg_latency_sec": 2.446,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.25,
+        "year": 0.5833,
+        "month": 0.5833,
+        "day": 0.5833,
+        "dayOfWeek": 0.5833,
+        "hour": 0.0833,
+        "minute": 0.0833,
+        "ampm": 0.75,
+        "type": 0.75
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 5,
+        "DAY_OF_WEEK_MISMATCH": 5,
+        "TIME_NORMALIZATION_FAILED": 11,
+        "TITLE_EXTRACTION_FAILED": 9,
+        "TYPE_CLASSIFICATION_FAILED": 3
+      }
+    },
+    "gemma3:4b": {
+      "case_count": 12,
+      "avg_score": 0.9907,
+      "avg_latency_sec": 1.739,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.9167,
+        "year": 1.0,
+        "month": 1.0,
+        "day": 1.0,
+        "dayOfWeek": 1.0,
+        "hour": 1.0,
+        "minute": 1.0,
+        "ampm": 1.0,
+        "type": 1.0
+      },
+      "failure_counts": {
+        "TITLE_EXTRACTION_FAILED": 1
+      }
+    },
+    "llama3.2:3b": {
+      "case_count": 12,
+      "avg_score": 0.6759,
+      "avg_latency_sec": 1.523,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.75,
+        "year": 0.5833,
+        "month": 0.5833,
+        "day": 0.5833,
+        "dayOfWeek": 0.5833,
+        "hour": 0.75,
+        "minute": 0.75,
+        "ampm": 0.75,
+        "type": 0.75
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 5,
+        "DAY_OF_WEEK_MISMATCH": 5,
+        "TIME_NORMALIZATION_FAILED": 3,
+        "TITLE_EXTRACTION_FAILED": 3,
+        "TYPE_CLASSIFICATION_FAILED": 3
+      }
+    }
+  }
+}
