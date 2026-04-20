@@ -7,7 +7,7 @@ from typing import Any
 
 import requests
 
-from versioned_outputs_v2 import write_text_with_version
+from versioned_outputs_v2 import write_text_version_only
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CASES_PATH = BASE_DIR / "cases" / "schedule_cases.json"
@@ -43,40 +43,6 @@ PROMPT_TEMPLATE = """
 10. title_text에는 날짜, 요일, 시간 표현을 넣지 마.
 11. 장소는 제목의 핵심이 아니면 빼.
 12. 값을 지어내지 마.
-
-좋은 예:
-입력: 다다음주 화요일 오전 9시 계약 미팅
-출력:
-{{
-  "title_text": "계약 미팅",
-  "date_text": "다다음주 화요일",
-  "time_text": "오전 9시"
-}}
-
-나쁜 예:
-{{
-  "title_text": "계약 미팅",
-  "date_text": "다음 주 화요일",
-  "time_text": "오전 9시"
-}}
-
-좋은 예:
-입력: 다음주 금욜 저녁 7시 친구 약속
-출력:
-{{
-  "title_text": "친구 약속",
-  "date_text": "다음주 금욜",
-  "time_text": "저녁 7시"
-}}
-
-좋은 예:
-입력: 다다음주 수요일 오후 4시 회고
-출력:
-{{
-  "title_text": "회고",
-  "date_text": "다다음주 수요일",
-  "time_text": "오후 4시"
-}}
 
 출력 JSON 스키마:
 {{
@@ -161,11 +127,10 @@ def main() -> None:
                 })
                 print(f"[ERROR] {model} / {case['id']} / {exc}", flush=True)
 
-    versioned_path = write_text_with_version(
+    versioned_path = write_text_version_only(
         RAW_PATH,
         json.dumps(results, ensure_ascii=False, indent=2),
     )
-    print(f"saved: {RAW_PATH}")
     print(f"saved: {versioned_path}")
 
 

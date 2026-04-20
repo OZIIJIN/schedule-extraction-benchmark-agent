@@ -5,6 +5,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from versioned_outputs_v2 import latest_versioned_path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SUMMARY_PATH = BASE_DIR / "outputs" / "v2" / "derived" / "evaluation_summary.json"
 DETAILS_PATH = BASE_DIR / "outputs" / "v2" / "derived" / "evaluation_details.json"
@@ -49,8 +51,10 @@ def recommendation(summary: dict[str, Any]) -> str:
 def main() -> None:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
-    details = json.loads(DETAILS_PATH.read_text(encoding="utf-8"))
+    summary_path = latest_versioned_path(SUMMARY_PATH)
+    details_path = latest_versioned_path(DETAILS_PATH)
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    details = json.loads(details_path.read_text(encoding="utf-8"))
 
     today = datetime.now().strftime("%Y-%m-%d")
     sequence = 1
@@ -128,6 +132,8 @@ def main() -> None:
         lines.append("")
 
     report_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"loaded: {summary_path}")
+    print(f"loaded: {details_path}")
     print(f"saved: {report_path}")
 
 

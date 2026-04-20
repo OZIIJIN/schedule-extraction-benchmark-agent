@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from schedule_resolver_v2 import normalize_intermediate, resolve_schedule
-from versioned_outputs_v2 import write_text_with_version
+from versioned_outputs_v2 import latest_versioned_path, write_text_version_only
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_PATH = BASE_DIR / "outputs" / "v2" / "raw" / "benchmark_intermediate_raw.json"
@@ -37,7 +37,8 @@ def try_parse_json(text: Any) -> tuple[dict[str, Any] | None, str | None]:
 def main() -> None:
     DERIVED_DIR.mkdir(parents=True, exist_ok=True)
 
-    raw_items = json.loads(RAW_PATH.read_text(encoding="utf-8"))
+    raw_path = latest_versioned_path(RAW_PATH)
+    raw_items = json.loads(raw_path.read_text(encoding="utf-8"))
     resolved_items: list[dict[str, Any]] = []
 
     for item in raw_items:
@@ -66,11 +67,11 @@ def main() -> None:
             ),
         })
 
-    versioned_path = write_text_with_version(
+    versioned_path = write_text_version_only(
         NORMALIZED_PATH,
         json.dumps(resolved_items, ensure_ascii=False, indent=2),
     )
-    print(f"saved: {NORMALIZED_PATH}")
+    print(f"loaded: {raw_path}")
     print(f"saved: {versioned_path}")
 
 

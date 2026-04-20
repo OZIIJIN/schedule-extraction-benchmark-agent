@@ -5,7 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from versioned_outputs_v2 import write_text_with_version
+from versioned_outputs_v2 import latest_versioned_path, write_text_version_only
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CASES_PATH = BASE_DIR / "cases" / "schedule_cases.json"
@@ -62,7 +62,8 @@ def classify_failures(expected: dict[str, Any], actual: dict[str, Any] | None, j
 
 def main() -> None:
     expected_map = load_expected_map()
-    normalized_items = json.loads(NORMALIZED_PATH.read_text(encoding="utf-8"))
+    normalized_path = latest_versioned_path(NORMALIZED_PATH)
+    normalized_items = json.loads(normalized_path.read_text(encoding="utf-8"))
 
     details: list[dict[str, Any]] = []
     per_model_rows: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -124,18 +125,17 @@ def main() -> None:
             "failure_counts": dict(sorted(failure_counts.items(), key=lambda x: x[0])),
         }
 
-    details_versioned_path = write_text_with_version(
+    details_versioned_path = write_text_version_only(
         DETAILS_PATH,
         json.dumps(details, ensure_ascii=False, indent=2),
     )
-    summary_versioned_path = write_text_with_version(
+    summary_versioned_path = write_text_version_only(
         SUMMARY_PATH,
         json.dumps(summary, ensure_ascii=False, indent=2),
     )
 
-    print(f"saved: {DETAILS_PATH}")
+    print(f"loaded: {normalized_path}")
     print(f"saved: {details_versioned_path}")
-    print(f"saved: {SUMMARY_PATH}")
     print(f"saved: {summary_versioned_path}")
 
 
