@@ -400,54 +400,6 @@
     }
   },
   {
-    "id": "case_026",
-    "now": "2026-04-20T10:00:00+09:00",
-    "input": "금요일까지 보고서 초안 작성",
-    "expected": {
-      "title": "보고서 초안 작성",
-      "year": 2026,
-      "month": 4,
-      "day": 24,
-      "dayOfWeek": "금요일",
-      "hour": null,
-      "minute": null,
-      "ampm": null,
-      "type": "TODO"
-    }
-  },
-  {
-    "id": "case_027",
-    "now": "2026-04-20T10:00:00+09:00",
-    "input": "이번주 금요일까지 발표 자료 정리",
-    "expected": {
-      "title": "발표 자료 정리",
-      "year": 2026,
-      "month": 4,
-      "day": 24,
-      "dayOfWeek": "금요일",
-      "hour": null,
-      "minute": null,
-      "ampm": null,
-      "type": "TODO"
-    }
-  },
-  {
-    "id": "case_028",
-    "now": "2026-04-20T10:00:00+09:00",
-    "input": "다음주 수요일까지 계약서 검토",
-    "expected": {
-      "title": "계약서 검토",
-      "year": 2026,
-      "month": 4,
-      "day": 29,
-      "dayOfWeek": "수요일",
-      "hour": null,
-      "minute": null,
-      "ampm": null,
-      "type": "TODO"
-    }
-  },
-  {
     "id": "case_029",
     "now": "2026-04-20T10:00:00+09:00",
     "input": "오늘 점심 약속",
@@ -461,22 +413,6 @@
       "minute": null,
       "ampm": null,
       "type": "TODO"
-    }
-  },
-  {
-    "id": "case_030",
-    "now": "2026-04-20T10:00:00+09:00",
-    "input": "내일 오전 10시부터 11시까지 면접",
-    "expected": {
-      "title": "면접",
-      "year": 2026,
-      "month": 4,
-      "day": 21,
-      "dayOfWeek": "화요일",
-      "hour": 10,
-      "minute": 0,
-      "ampm": "오전",
-      "type": "SCHEDULE"
     }
   },
   {
@@ -634,6 +570,1030 @@
       "day": 20,
       "dayOfWeek": "월요일",
       "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_041",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "오늘 오후 4시 디자인 리뷰",
+    "expected": {
+      "title": "디자인 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_042",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "오늘 오전 11시 20분 고객 통화",
+    "expected": {
+      "title": "고객 통화",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 20,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_043",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "오늘 밤 9시 반 요가 수업",
+    "expected": {
+      "title": "요가 수업",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 9,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_044",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "내일 새벽 5시 공항버스",
+    "expected": {
+      "title": "공항버스",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_045",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "내일 낮 1시 부모님 전화",
+    "expected": {
+      "title": "부모님 전화",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_046",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "내일 저녁 6시 반 회식",
+    "expected": {
+      "title": "회식",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 6,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_047",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "모레 오후 4시 45분 피부과",
+    "expected": {
+      "title": "피부과",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 45,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_048",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "모레 아침 8시 세탁소",
+    "expected": {
+      "title": "세탁소",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_049",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 월요일 오후 5시 원온원",
+    "expected": {
+      "title": "원온원",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_050",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 화요일 오전 10시 제품 데모",
+    "expected": {
+      "title": "제품 데모",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_051",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 수요일 오후 7시 농구",
+    "expected": {
+      "title": "농구",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_052",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 목요일 오전 6시 수영",
+    "expected": {
+      "title": "수영",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_053",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 금요일 밤 10시 라이브 방송",
+    "expected": {
+      "title": "라이브 방송",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_054",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 토요일 낮 12시 가족 식사",
+    "expected": {
+      "title": "가족 식사",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_055",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 일요일 저녁 5시 산책",
+    "expected": {
+      "title": "산책",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_056",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 월요일 오전 9시 전체 회의",
+    "expected": {
+      "title": "전체 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_057",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 화요일 오후 1시 반 점심 인터뷰",
+    "expected": {
+      "title": "점심 인터뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_058",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 수요일 오후 6시 네일 예약",
+    "expected": {
+      "title": "네일 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_059",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 목요일 밤 11시 배포 점검",
+    "expected": {
+      "title": "배포 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_060",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 금요일 오전 7시 기차 예매",
+    "expected": {
+      "title": "기차 예매",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_061",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 토요일 오후 3시 미술관 관람",
+    "expected": {
+      "title": "미술관 관람",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_062",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 일요일 오전 10시 교회",
+    "expected": {
+      "title": "교회",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_063",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다다음주 화요일 오전 9시 계약 미팅",
+    "expected": {
+      "title": "계약 미팅",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_064",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다다음주 수요일 오후 4시 회고",
+    "expected": {
+      "title": "회고",
+      "year": 2026,
+      "month": 5,
+      "day": 6,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_065",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다다음주 금요일 저녁 8시 동창회",
+    "expected": {
+      "title": "동창회",
+      "year": 2026,
+      "month": 5,
+      "day": 8,
+      "dayOfWeek": "금요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_066",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "4월 21일 오전 9시 세무 상담",
+    "expected": {
+      "title": "세무 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_067",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "4월 30일 오후 2시 보험 상담",
+    "expected": {
+      "title": "보험 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_068",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "5월 1일 오전 10시 근로자의 날 약속",
+    "expected": {
+      "title": "근로자의 날 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_069",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "5월 5일 오후 3시 어린이날 행사",
+    "expected": {
+      "title": "어린이날 행사",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_070",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "5/7 저녁 6시 저녁 약속",
+    "expected": {
+      "title": "저녁 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 7,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_071",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "6월 1일 오전 8시 건강검진",
+    "expected": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 6,
+      "day": 1,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_072",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번 달 24일 오후 5시 멘토링",
+    "expected": {
+      "title": "멘토링",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_073",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번 달 29일 오전 11시 채용 면접",
+    "expected": {
+      "title": "채용 면접",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_074",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음 달 4일 오후 2시 법무 검토",
+    "expected": {
+      "title": "법무 검토",
+      "year": 2026,
+      "month": 5,
+      "day": 4,
+      "dayOfWeek": "월요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_075",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음 달 15일 저녁 7시 가족 모임",
+    "expected": {
+      "title": "가족 모임",
+      "year": 2026,
+      "month": 5,
+      "day": 15,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_076",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "오늘 책 반납",
+    "expected": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_077",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "내일 이메일 정리",
+    "expected": {
+      "title": "이메일 정리",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_078",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "모레 장보기",
+    "expected": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_079",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 금요일 자료 백업",
+    "expected": {
+      "title": "자료 백업",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_080",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 일요일 방 청소",
+    "expected": {
+      "title": "방 청소",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_081",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 월요일 세금 확인",
+    "expected": {
+      "title": "세금 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_082",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 목요일 여권 사진 준비",
+    "expected": {
+      "title": "여권 사진 준비",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_083",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음 달 3일 여행 가방 싸기",
+    "expected": {
+      "title": "여행 가방 싸기",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_084",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "4월 28일 병원 서류 챙기기",
+    "expected": {
+      "title": "병원 서류 챙기기",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    }
+  },
+  {
+    "id": "case_085",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "내일 오후 세시 반 안과 진료",
+    "expected": {
+      "title": "안과 진료",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_086",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "오늘 오후 열두시 반 점심 회의",
+    "expected": {
+      "title": "점심 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_087",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "모레 오전 열한시 팀 커피",
+    "expected": {
+      "title": "팀 커피",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_088",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 금욜 오후 2시 세일즈콜",
+    "expected": {
+      "title": "세일즈콜",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_089",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 목욜 저녁 6시 책모임",
+    "expected": {
+      "title": "책모임",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_090",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다다음주 일욜 아침 9시 등산",
+    "expected": {
+      "title": "등산",
+      "year": 2026,
+      "month": 5,
+      "day": 10,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_091",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번 주 토욜 오후 4시 사진 촬영",
+    "expected": {
+      "title": "사진 촬영",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_092",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음 주 수욜 오전 10시 UX 테스트",
+    "expected": {
+      "title": "UX 테스트",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_093",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "내일 14시 데이터 점검",
+    "expected": {
+      "title": "데이터 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_094",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "모레 09시 운영 회의",
+    "expected": {
+      "title": "운영 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_095",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "4/22 16시 법인카드 정산",
+    "expected": {
+      "title": "법인카드 정산",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_096",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "5/2 10시 차량 점검",
+    "expected": {
+      "title": "차량 점검",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_097",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 월요일 0시 로그 확인",
+    "expected": {
+      "title": "로그 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_098",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번주 금요일 12시 점심 예약",
+    "expected": {
+      "title": "점심 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_099",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "오늘 오전 0시 서버 알림 확인",
+    "expected": {
+      "title": "서버 알림 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_100",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음 달 1일 밤 9시 공연",
+    "expected": {
+      "title": "공연",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_101",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "이번 달 27일 아침 7시 조찬",
+    "expected": {
+      "title": "조찬",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_102",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "5월 10일 새벽 6시 낚시",
+    "expected": {
+      "title": "낚시",
+      "year": 2026,
+      "month": 5,
+      "day": 10,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_103",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다음주 화요일 낮 12시 반 도시락 미팅",
+    "expected": {
+      "title": "도시락 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    }
+  },
+  {
+    "id": "case_104",
+    "now": "2026-04-20T10:00:00+09:00",
+    "input": "다다음주 목요일 오후 5시 예산 회의",
+    "expected": {
+      "title": "예산 회의",
+      "year": 2026,
+      "month": 5,
+      "day": 7,
+      "dayOfWeek": "목요일",
+      "hour": 5,
       "minute": 0,
       "ampm": "오후",
       "type": "SCHEDULE"
