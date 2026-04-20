@@ -5,6 +5,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from versioned_outputs_v2 import write_text_with_version
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 CASES_PATH = BASE_DIR / "cases" / "schedule_cases.json"
 NORMALIZED_PATH = BASE_DIR / "outputs" / "v2" / "derived" / "resolved_outputs.json"
@@ -122,11 +124,19 @@ def main() -> None:
             "failure_counts": dict(sorted(failure_counts.items(), key=lambda x: x[0])),
         }
 
-    DETAILS_PATH.write_text(json.dumps(details, ensure_ascii=False, indent=2), encoding="utf-8")
-    SUMMARY_PATH.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    details_versioned_path = write_text_with_version(
+        DETAILS_PATH,
+        json.dumps(details, ensure_ascii=False, indent=2),
+    )
+    summary_versioned_path = write_text_with_version(
+        SUMMARY_PATH,
+        json.dumps(summary, ensure_ascii=False, indent=2),
+    )
 
     print(f"saved: {DETAILS_PATH}")
+    print(f"saved: {details_versioned_path}")
     print(f"saved: {SUMMARY_PATH}")
+    print(f"saved: {summary_versioned_path}")
 
 
 if __name__ == "__main__":

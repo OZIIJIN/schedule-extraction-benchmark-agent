@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from schedule_resolver_v2 import normalize_intermediate, resolve_schedule
+from versioned_outputs_v2 import write_text_with_version
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_PATH = BASE_DIR / "outputs" / "v2" / "raw" / "benchmark_intermediate_raw.json"
@@ -65,11 +66,12 @@ def main() -> None:
             ),
         })
 
-    NORMALIZED_PATH.write_text(
+    versioned_path = write_text_with_version(
+        NORMALIZED_PATH,
         json.dumps(resolved_items, ensure_ascii=False, indent=2),
-        encoding="utf-8",
     )
     print(f"saved: {NORMALIZED_PATH}")
+    print(f"saved: {versioned_path}")
 
 
 if __name__ == "__main__":

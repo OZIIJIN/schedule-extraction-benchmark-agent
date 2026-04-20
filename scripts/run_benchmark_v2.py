@@ -7,6 +7,8 @@ from typing import Any
 
 import requests
 
+from versioned_outputs_v2 import write_text_with_version
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 CASES_PATH = BASE_DIR / "cases" / "schedule_cases.json"
 RAW_DIR = BASE_DIR / "outputs" / "v2" / "raw"
@@ -159,11 +161,12 @@ def main() -> None:
                 })
                 print(f"[ERROR] {model} / {case['id']} / {exc}", flush=True)
 
-    RAW_PATH.write_text(
+    versioned_path = write_text_with_version(
+        RAW_PATH,
         json.dumps(results, ensure_ascii=False, indent=2),
-        encoding="utf-8",
     )
     print(f"saved: {RAW_PATH}")
+    print(f"saved: {versioned_path}")
 
 
 if __name__ == "__main__":
