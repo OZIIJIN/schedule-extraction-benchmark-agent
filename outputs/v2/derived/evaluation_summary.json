@@ -1,24 +1,23 @@
 {
   "models": {
     "gemma3:4b": {
-      "case_count": 40,
-      "avg_score": 0.9889,
-      "avg_latency_sec": 1.663,
+      "case_count": 100,
+      "avg_score": 0.9933,
+      "avg_latency_sec": 1.664,
       "json_valid_rate": 1.0,
       "field_accuracy": {
         "title": 1.0,
-        "year": 0.975,
-        "month": 0.975,
-        "day": 0.975,
-        "dayOfWeek": 0.975,
+        "year": 1.0,
+        "month": 0.98,
+        "day": 0.96,
+        "dayOfWeek": 1.0,
         "hour": 1.0,
         "minute": 1.0,
         "ampm": 1.0,
         "type": 1.0
       },
       "failure_counts": {
-        "DATE_RESOLUTION_FAILED": 1,
-        "DAY_OF_WEEK_MISMATCH": 1
+        "DATE_RESOLUTION_FAILED": 4
       }
     }
   }
