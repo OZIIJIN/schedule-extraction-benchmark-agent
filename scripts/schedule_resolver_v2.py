@@ -14,6 +14,15 @@ WEEKDAY_OFFSETS = {
     "토": 5,
     "일": 6,
 }
+WEEKDAY_ALIASES = {
+    "월욜": "월요일",
+    "화욜": "화요일",
+    "수욜": "수요일",
+    "목욜": "목요일",
+    "금욜": "금요일",
+    "토욜": "토요일",
+    "일욜": "일요일",
+}
 KOREAN_HOURS = {
     "한": 1,
     "두": 2,
@@ -51,9 +60,32 @@ def weekday_name(value: date) -> str:
     return WEEKDAY_NAMES[value.weekday()]
 
 
+def add_months(value: date, months: int) -> date:
+    month_index = value.month - 1 + months
+    return date(value.year + month_index // 12, month_index % 12 + 1, 1)
+
+
+def normalize_date_text(text: str) -> str:
+    normalized = text
+    for alias, weekday in WEEKDAY_ALIASES.items():
+        normalized = normalized.replace(alias, weekday)
+    return normalized
+
+
 def resolve_date(now_text: str, date_text: str | None, original_input: str) -> date | None:
     base = datetime.fromisoformat(now_text).date()
-    text = date_text or original_input
+    text = normalize_date_text(date_text or original_input)
+    resolved = resolve_date_from_text(base, text)
+    if resolved is not None:
+        return resolved
+
+    if date_text:
+        return resolve_date_from_text(base, normalize_date_text(original_input))
+
+    return None
+
+
+def resolve_date_from_text(base: date, text: str) -> date | None:
     compact = re.sub(r"\s+", "", text)
 
     if "모레" in compact:
@@ -63,12 +95,22 @@ def resolve_date(now_text: str, date_text: str | None, original_input: str) -> d
     if "오늘" in compact:
         return base
 
-    week_match = re.search(r"(이번주|다음주)(월|화|수|목|금|토|일)요일?", compact)
+    week_match = re.search(r"(다다음주|이번주|다음주)(월|화|수|목|금|토|일)요일?", compact)
     if week_match:
         week_prefix, weekday = week_match.groups()
         start_of_week = base - timedelta(days=base.weekday())
-        week_delta = 7 if week_prefix == "다음주" else 0
+        week_delta = {
+            "이번주": 0,
+            "다음주": 7,
+            "다다음주": 14,
+        }[week_prefix]
         return start_of_week + timedelta(days=week_delta + WEEKDAY_OFFSETS[weekday])
+
+    relative_month_day_match = re.search(r"(이번달|다음달)(\d{1,2})일", compact)
+    if relative_month_day_match:
+        month_prefix, raw_day = relative_month_day_match.groups()
+        month_base = add_months(base, 1 if month_prefix == "다음달" else 0)
+        return date(month_base.year, month_base.month, int(raw_day))
 
     month_day_match = re.search(r"(\d{1,2})\s*(?:월|/)\s*(\d{1,2})\s*(?:일)?", text)
     if month_day_match:
@@ -136,7 +178,31 @@ def resolve_time(
 
 
 def clean_title(title_text: str | None, original_input: str, date_text: str | None, time_text: str | None) -> str | None:
-    title = title_text or original_input
+    generated_title = clean_title_candidate(original_input, date_text, time_text)
+    title = title_text or generated_title or original_input
+    if generated_title and title_text and generated_title.startswith(title_text) and len(generated_title) > len(title_text):
+        title = generated_title
+
+    return clean_title_candidate(title, date_text, time_text)
+
+
+def clean_title_candidate(
+    title: str,
+    date_text: str | None,
+    time_text: str | None,
+) -> str | None:
+    title = normalize_date_text(title)
+
+    for fragment in [date_text, time_text]:
+        if fragment:
+            title = title.replace(fragment, " ")
+            title = title.replace(normalize_date_text(fragment), " ")
+
+    title = re.sub(r"부터|까지", " ", title)
+
+    # 날짜/요일 표현을 먼저 제거해 남는 핵심 제목을 비교 후보로 쓴다.
+    title = re.sub(r"(이번|다음)\s*달\s*\d{1,2}\s*일", " ", title)
+    title = re.sub(r"다다음\s*주\s*[월화수목금토일]요일?", " ", title)
 
     for fragment in [date_text, time_text]:
         if fragment:
@@ -146,7 +212,8 @@ def clean_title(title_text: str | None, original_input: str, date_text: str | No
         r"\b오늘\b|\b내일\b|\b모레\b",
         r"이번\s*주\s*[월화수목금토일]요일?",
         r"다음\s*주\s*[월화수목금토일]요일?",
-        r"(오전|오후|아침|저녁|밤|낮|새벽)",
+        r"(이번|다음|다다음)\s*주",
+        r"(오전|오후|아침|저녁|밤|낮|새벽)\s*(?=(\d{1,2}|한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두)\s*시|에)",
         r"(\d{1,2}|한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두)\s*시\s*(반|\d{1,2}\s*분|정각)?",
         r"\d{1,2}\s*(월|/)\s*\d{1,2}\s*일?",
         r"[가-힣A-Za-z0-9]+역에서",
