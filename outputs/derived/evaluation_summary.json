@@ -1,0 +1,148 @@
+{
+  "models": {
+    "qwen2.5:7b": {
+      "case_count": 12,
+      "avg_score": 0.6482,
+      "avg_latency_sec": 8.931,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.9167,
+        "year": 1.0,
+        "month": 0.9167,
+        "day": 0.25,
+        "dayOfWeek": 0.5,
+        "hour": 0.3333,
+        "minute": 0.5,
+        "ampm": 0.6667,
+        "type": 0.75
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 9,
+        "DAY_OF_WEEK_MISMATCH": 6,
+        "TIME_NORMALIZATION_FAILED": 8,
+        "TITLE_EXTRACTION_FAILED": 1,
+        "TYPE_CLASSIFICATION_FAILED": 3
+      }
+    },
+    "qwen2.5:3b": {
+      "case_count": 12,
+      "avg_score": 0.4629,
+      "avg_latency_sec": 5.008,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.25,
+        "year": 0.8333,
+        "month": 0.8333,
+        "day": 0.25,
+        "dayOfWeek": 0.3333,
+        "hour": 0.3333,
+        "minute": 0.25,
+        "ampm": 0.4167,
+        "type": 0.6667
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 9,
+        "DAY_OF_WEEK_MISMATCH": 8,
+        "TIME_NORMALIZATION_FAILED": 10,
+        "TITLE_EXTRACTION_FAILED": 9,
+        "TYPE_CLASSIFICATION_FAILED": 4
+      }
+    },
+    "qwen2.5:1.5b": {
+      "case_count": 12,
+      "avg_score": 0.3796,
+      "avg_latency_sec": 3.119,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.0833,
+        "year": 0.8333,
+        "month": 0.75,
+        "day": 0.25,
+        "dayOfWeek": 0.3333,
+        "hour": 0.1667,
+        "minute": 0.0833,
+        "ampm": 0.25,
+        "type": 0.6667
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 9,
+        "DAY_OF_WEEK_MISMATCH": 8,
+        "TIME_NORMALIZATION_FAILED": 11,
+        "TITLE_EXTRACTION_FAILED": 11,
+        "TYPE_CLASSIFICATION_FAILED": 4
+      }
+    },
+    "llama3.2:1b": {
+      "case_count": 12,
+      "avg_score": 0.3796,
+      "avg_latency_sec": 3.358,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.0,
+        "year": 1.0,
+        "month": 0.9167,
+        "day": 0.25,
+        "dayOfWeek": 0.3333,
+        "hour": 0.0,
+        "minute": 0.0,
+        "ampm": 0.1667,
+        "type": 0.75
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 9,
+        "DAY_OF_WEEK_MISMATCH": 8,
+        "TIME_NORMALIZATION_FAILED": 12,
+        "TITLE_EXTRACTION_FAILED": 12,
+        "TYPE_CLASSIFICATION_FAILED": 3
+      }
+    },
+    "gemma3:4b": {
+      "case_count": 12,
+      "avg_score": 0.5741,
+      "avg_latency_sec": 3.321,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.0833,
+        "year": 1.0,
+        "month": 0.9167,
+        "day": 0.1667,
+        "dayOfWeek": 0.5,
+        "hour": 0.25,
+        "minute": 0.75,
+        "ampm": 0.75,
+        "type": 0.75
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 10,
+        "DAY_OF_WEEK_MISMATCH": 6,
+        "TIME_NORMALIZATION_FAILED": 9,
+        "TITLE_EXTRACTION_FAILED": 11,
+        "TYPE_CLASSIFICATION_FAILED": 3
+      }
+    },
+    "llama3.2:3b": {
+      "case_count": 12,
+      "avg_score": 0.5463,
+      "avg_latency_sec": 3.128,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.1667,
+        "year": 1.0,
+        "month": 0.9167,
+        "day": 0.3333,
+        "dayOfWeek": 0.8333,
+        "hour": 0.3333,
+        "minute": 0.3333,
+        "ampm": 0.3333,
+        "type": 0.6667
+      },
+      "failure_counts": {
+        "DATE_RESOLUTION_FAILED": 8,
+        "DAY_OF_WEEK_MISMATCH": 2,
+        "TIME_NORMALIZATION_FAILED": 8,
+        "TITLE_EXTRACTION_FAILED": 10,
+        "TYPE_CLASSIFICATION_FAILED": 4
+      }
+    }
+  }
+}
