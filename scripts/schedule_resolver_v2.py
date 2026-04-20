@@ -90,7 +90,7 @@ def resolve_date_from_text(base: date, text: str) -> date | None:
 
     if "모레" in compact:
         return base + timedelta(days=2)
-    if "내일" in compact:
+    if "내일" in compact or "낼" in compact:
         return base + timedelta(days=1)
     if "오늘" in compact:
         return base
@@ -178,11 +178,7 @@ def resolve_time(
 
 
 def clean_title(title_text: str | None, original_input: str, date_text: str | None, time_text: str | None) -> str | None:
-    generated_title = clean_title_candidate(original_input, date_text, time_text)
-    title = title_text or generated_title or original_input
-    if generated_title and title_text and generated_title.startswith(title_text) and len(generated_title) > len(title_text):
-        title = generated_title
-
+    title = title_text or original_input
     return clean_title_candidate(title, date_text, time_text)
 
 
