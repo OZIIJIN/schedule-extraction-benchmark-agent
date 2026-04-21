@@ -36,13 +36,16 @@ PROMPT_TEMPLATE = """
 3. time_text에는 시간 표현만 원문 그대로 넣어.
 4. 날짜 표현이 없으면 date_text는 null이야.
 5. 시간 표현이 없으면 time_text는 null이야.
-6. remove_spans에는 source_text에서 제목이 아니므로 제거해야 하는 날짜/요일/시간 span만 넣어.
+6. remove_spans에는 source_text에서 최종 title에 포함하지 않을 모든 span을 넣어.
+   날짜/요일/시간뿐 아니라 조사, 대화형 어미, 요청 표현도 포함해.
 7. remove_spans에는 제목 단어를 절대 넣지 마.
 8. title을 직접 만들거나 요약하지 마.
 9. "저녁 6시", "아침 8시", "새벽 6시", "오후 4시"처럼 시간대 단어와 숫자 시간이 붙어 있으면 전체를 time_text와 remove_spans에 넣어.
 10. "엄마 생신 저녁", "월초 회식", "오늘 마감 확인", "낚시 출발", "헬스장 PT"처럼 일정명에 속한 단어는 remove_spans에 넣지 마.
 11. date_text나 time_text에 들어간 span은 remove_spans에도 넣어.
-12. 값을 지어내지 마.
+12. "할거야", "할 거야", "할게", "갈게", "갈 거야", "갈래", "잡아줘", "해야 돼", "해야 해", "해둘게", "먹을래", "먹을 거야", "보러 갈게", "받을 거야" 같은 말투/요청 표현은 remove_spans에 넣어.
+13. source_text는 절대 고치지 말고 원문 그대로 유지해.
+14. 값을 지어내지 마.
 
 좋은 예:
 입력: 내일 아침 9시 반에 헬스장 가서 PT
@@ -51,7 +54,7 @@ PROMPT_TEMPLATE = """
   "source_text": "내일 아침 9시 반에 헬스장 가서 PT",
   "date_text": "내일",
   "time_text": "아침 9시 반",
-  "remove_spans": ["내일", "아침 9시 반"]
+  "remove_spans": ["내일", "아침 9시 반", "에", "가서"]
 }}
 
 좋은 예:
@@ -82,6 +85,36 @@ PROMPT_TEMPLATE = """
   "date_text": "20일",
   "time_text": "오후 4시",
   "remove_spans": ["20일", "오후 4시"]
+}}
+
+좋은 예:
+입력: 오늘 8시에 헬스 할거야
+출력:
+{{
+  "source_text": "오늘 8시에 헬스 할거야",
+  "date_text": "오늘",
+  "time_text": "8시",
+  "remove_spans": ["오늘", "8시에", "할거야"]
+}}
+
+좋은 예:
+입력: 다음주 수요일 오후 2시에 주간회의 잡아줘
+출력:
+{{
+  "source_text": "다음주 수요일 오후 2시에 주간회의 잡아줘",
+  "date_text": "다음주 수요일",
+  "time_text": "오후 2시",
+  "remove_spans": ["다음주 수요일", "오후 2시에", "잡아줘"]
+}}
+
+좋은 예:
+입력: 모레 책 반납해야 돼
+출력:
+{{
+  "source_text": "모레 책 반납해야 돼",
+  "date_text": "모레",
+  "time_text": null,
+  "remove_spans": ["모레", "해야 돼"]
 }}
 
 출력 JSON 스키마:
