@@ -153,19 +153,17 @@ def parse_hour(raw_hour: str) -> int | None:
     return KOREAN_HOURS.get(raw_hour)
 
 
-def resolve_time(
-    time_text: str | None,
-    original_input: str,
-    date_text: str | None = None,
+def parse_time_from_text(
+    text: str,
+    context: str,
 ) -> dict[str, int | str | None]:
-    text = time_text or original_input
     compact = re.sub(r"\s+", "", text)
-    context = re.sub(r"\s+", "", " ".join(value for value in [time_text, date_text, original_input] if value))
+    compact_context = re.sub(r"\s+", "", context)
 
     ampm: str | None = None
-    if any(token in context for token in ["오전", "아침", "새벽"]):
+    if any(token in compact_context for token in ["오전", "아침", "새벽"]):
         ampm = "오전"
-    if any(token in context for token in ["오후", "저녁", "밤", "낮"]):
+    if any(token in compact_context for token in ["오후", "저녁", "밤", "낮"]):
         ampm = "오후"
 
     hour_pattern = "|".join(sorted(KOREAN_HOURS, key=len, reverse=True))
@@ -199,6 +197,22 @@ def resolve_time(
     return {"hour": hour, "minute": minute, "ampm": ampm}
 
 
+def resolve_time(
+    time_text: str | None,
+    original_input: str,
+    date_text: str | None = None,
+) -> dict[str, int | str | None]:
+    context = " ".join(value for value in [time_text, date_text, original_input] if value)
+    for candidate in [time_text, date_text, original_input]:
+        if not candidate:
+            continue
+        resolved = parse_time_from_text(candidate, context)
+        if resolved["hour"] is not None:
+            return resolved
+
+    return {"hour": None, "minute": None, "ampm": None}
+
+
 def clean_title(title_text: str | None, original_input: str, date_text: str | None, time_text: str | None) -> str | None:
     title = title_text or original_input
     return clean_title_candidate(title, date_text, time_text)
@@ -210,8 +224,9 @@ def clean_title_candidate(
     time_text: str | None,
 ) -> str | None:
     title = normalize_date_text(title)
+    normalized_time_text = time_text if time_text and parse_time_from_text(time_text, time_text)["hour"] is not None else None
 
-    for fragment in [date_text, time_text]:
+    for fragment in [date_text, normalized_time_text]:
         if fragment:
             title = title.replace(fragment, " ")
             title = title.replace(normalize_date_text(fragment), " ")
@@ -222,7 +237,7 @@ def clean_title_candidate(
     title = re.sub(r"(이번|다음)\s*달\s*\d{1,2}\s*일", " ", title)
     title = re.sub(r"다다음\s*주\s*[월화수목금토일]요일?", " ", title)
 
-    for fragment in [date_text, time_text]:
+    for fragment in [date_text, normalized_time_text]:
         if fragment:
             title = title.replace(fragment, " ")
 
