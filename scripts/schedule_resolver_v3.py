@@ -136,6 +136,9 @@ def fallback_spans(
     remove_spans: list[str],
 ) -> list[str]:
     spans: list[str] = []
+    if not date_text and re.search(r"^(오늘|내일|낼|모레)\s+", source_text):
+        spans.append(re.search(r"^(오늘|내일|낼|모레)", source_text).group(1))
+
     for span in [date_text, time_text, *remove_spans]:
         span = blank_to_none(span)
         if not span:
@@ -174,6 +177,14 @@ def title_from_intermediate(
 
     primary_compact = primary_title.replace(" ", "")
     fallback_compact = (fallback_title or "").replace(" ", "")
+    if (
+        fallback_title is not None
+        and not date_text
+        and re.search(r"^(오늘|내일|낼|모레)\s+", source_text)
+        and re.search(r"^(오늘|내일|낼|모레)\s+", primary_title)
+    ):
+        return fallback_title
+
     if (
         fallback_title is not None
         and (removed_title_like_span or primary_compact in fallback_compact)
