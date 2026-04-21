@@ -65,6 +65,20 @@ def add_months(value: date, months: int) -> date:
     return date(value.year + month_index // 12, month_index % 12 + 1, 1)
 
 
+def closest_weekday_on_or_after(base: date, weekday_offset: int) -> date:
+    days_ahead = (weekday_offset - base.weekday()) % 7
+    return base + timedelta(days=days_ahead)
+
+
+def closest_day_of_month_on_or_after(base: date, day: int) -> date:
+    candidate = date(base.year, base.month, day)
+    if candidate >= base:
+        return candidate
+
+    next_month = add_months(base, 1)
+    return date(next_month.year, next_month.month, day)
+
+
 def normalize_date_text(text: str) -> str:
     normalized = text
     for alias, weekday in WEEKDAY_ALIASES.items():
@@ -121,6 +135,14 @@ def resolve_date_from_text(base: date, text: str) -> date | None:
         if candidate < base:
             candidate = date(year + 1, month, day)
         return candidate
+
+    bare_weekday_match = re.search(r"(?<![가-힣A-Za-z0-9])(월|화|수|목|금|토|일)요일?(?:에|날)?", compact)
+    if bare_weekday_match:
+        return closest_weekday_on_or_after(base, WEEKDAY_OFFSETS[bare_weekday_match.group(1)])
+
+    bare_day_match = re.search(r"(?<![월0-9])(\d{1,2})일(?:에|날)?", compact)
+    if bare_day_match:
+        return closest_day_of_month_on_or_after(base, int(bare_day_match.group(1)))
 
     return None
 
