@@ -1,10 +1,24 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
+
+
+VERSION_PATTERN = re.compile(r"-(\d{2})$")
+
+
+def version_number(path: Path) -> int:
+    match = VERSION_PATTERN.search(path.stem)
+    if not match:
+        return 0
+    return int(match.group(1))
 
 
 def versioned_paths(path: Path) -> list[Path]:
-    return sorted(path.parent.glob(f"{path.stem}-[0-9][0-9]{path.suffix}"))
+    return sorted(
+        path.parent.glob(f"{path.stem}-[0-9][0-9]{path.suffix}"),
+        key=version_number,
+    )
 
 
 def latest_versioned_path(path: Path) -> Path:
@@ -15,12 +29,8 @@ def latest_versioned_path(path: Path) -> Path:
 
 
 def next_versioned_path(path: Path) -> Path:
-    sequence = 1
-    while True:
-        candidate = path.with_name(f"{path.stem}-{sequence:02d}{path.suffix}")
-        if not candidate.exists():
-            return candidate
-        sequence += 1
+    sequence = max([version_number(candidate) for candidate in versioned_paths(path)], default=0) + 1
+    return path.with_name(f"{path.stem}-{sequence:02d}{path.suffix}")
 
 
 def write_text_with_version(path: Path, content: str, *, encoding: str = "utf-8") -> Path:

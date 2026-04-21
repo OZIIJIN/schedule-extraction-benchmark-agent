@@ -218,18 +218,63 @@ def clean_title(title_text: str | None, original_input: str, date_text: str | No
     return clean_title_candidate(title, date_text, time_text)
 
 
+def expand_time_fragment(title: str, time_text: str | None) -> str | None:
+    if not time_text or parse_time_from_text(time_text, time_text)["hour"] is None:
+        return None
+
+    normalized_time_text = normalize_date_text(time_text)
+    escaped_time = re.escape(normalized_time_text)
+    match = re.search(
+        rf"(오전|오후|아침|저녁|밤|낮|새벽)\s*{escaped_time}",
+        title,
+    )
+    if match:
+        return match.group(0)
+
+    return normalized_time_text
+
+
+def removable_date_fragment(date_text: str | None) -> str | None:
+    if not date_text:
+        return None
+
+    normalized = normalize_date_text(date_text)
+    compact = re.sub(r"\s+", "", normalized)
+    patterns = [
+        r"오늘|내일|낼|모레",
+        r"(이번|다음|다다음)주",
+        r"[월화수목금토일]요일?",
+        r"(이번|다음)달\d{1,2}일",
+        r"\d{1,2}월\d{1,2}일",
+        r"\d{1,2}/\d{1,2}",
+        r"\d{1,2}일",
+    ]
+    if any(re.search(pattern, compact) for pattern in patterns):
+        return normalized
+
+    return None
+
+
 def clean_title_candidate(
     title: str,
     date_text: str | None,
     time_text: str | None,
 ) -> str | None:
     title = normalize_date_text(title)
-    normalized_time_text = time_text if time_text and parse_time_from_text(time_text, time_text)["hour"] is not None else None
+    normalized_date_text = removable_date_fragment(date_text)
+    normalized_time_text = expand_time_fragment(title, time_text)
+    remove_relative_date_prefix = bool(
+        normalized_time_text
+        and re.search(r"^(오늘|내일|낼|모레)\s+", title)
+    )
 
-    for fragment in [date_text, normalized_time_text]:
+    for fragment in [normalized_date_text, normalized_time_text]:
         if fragment:
             title = title.replace(fragment, " ")
             title = title.replace(normalize_date_text(fragment), " ")
+
+    if remove_relative_date_prefix:
+        title = re.sub(r"^(오늘|내일|낼|모레)\s+", " ", title)
 
     title = re.sub(r"부터|까지", " ", title)
 
@@ -237,18 +282,18 @@ def clean_title_candidate(
     title = re.sub(r"(이번|다음)\s*달\s*\d{1,2}\s*일", " ", title)
     title = re.sub(r"다다음\s*주\s*[월화수목금토일]요일?", " ", title)
 
-    for fragment in [date_text, normalized_time_text]:
+    for fragment in [normalized_date_text, normalized_time_text]:
         if fragment:
             title = title.replace(fragment, " ")
 
     patterns = [
-        r"\b오늘\b|\b내일\b|\b모레\b",
         r"이번\s*주\s*[월화수목금토일]요일?",
         r"다음\s*주\s*[월화수목금토일]요일?",
         r"(이번|다음|다다음)\s*주",
         r"(오전|오후|아침|저녁|밤|낮|새벽)\s*(?=(\d{1,2}|한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두)\s*시|에)",
         r"(\d{1,2}|한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|열한|열두)\s*시\s*(반|\d{1,2}\s*분|정각)?",
         r"\d{1,2}\s*(월|/)\s*\d{1,2}\s*일?",
+        r"(?<!월)\d{1,2}\s*일(?=\s|$)",
         r"[가-힣A-Za-z0-9]+역에서",
         r"\b에서\b|\b에\b",
     ]
