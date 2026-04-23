@@ -1,0 +1,139 @@
+{
+  "version": "v3",
+  "model": "gemma3:4b",
+  "summary": {
+    "avg_score": 0.9978,
+    "avg_latency_sec": 6.686,
+    "json_valid_rate": 1.0,
+    "field_accuracy": {
+      "title": 0.98,
+      "year": 1.0,
+      "month": 1.0,
+      "day": 1.0,
+      "dayOfWeek": 1.0,
+      "hour": 1.0,
+      "minute": 1.0,
+      "ampm": 1.0,
+      "type": 1.0
+    }
+  },
+  "failure_counts": {
+    "TITLE_EXTRACTION_FAILED": 3
+  },
+  "failure_case_count": 3,
+  "dialog_failure_count": 1,
+  "examples": [
+    {
+      "case_id": "case_079",
+      "input": "이번주 금요일 자료 백업",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "이번주 금요일 자료 백업",
+        "year": 2026,
+        "month": 4,
+        "day": 24,
+        "dayOfWeek": "금요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "expected": {
+        "title": "자료 백업",
+        "year": 2026,
+        "month": 4,
+        "day": 24,
+        "dayOfWeek": "금요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "intermediate": {
+        "source_text": "이번주 금요일 자료 백업",
+        "date_text": "이번주 금요일",
+        "time_text": null,
+        "remove_spans": []
+      }
+    },
+    {
+      "case_id": "case_119",
+      "input": "20일 오후 4시 오늘 마감 확인",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "마감 확인",
+        "year": 2026,
+        "month": 4,
+        "day": 20,
+        "dayOfWeek": "월요일",
+        "hour": 4,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "expected": {
+        "title": "오늘 마감 확인",
+        "year": 2026,
+        "month": 4,
+        "day": 20,
+        "dayOfWeek": "월요일",
+        "hour": 4,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "intermediate": {
+        "source_text": "20일 오후 4시 오늘 마감 확인",
+        "date_text": "20일 오늘",
+        "time_text": "오후 4시",
+        "remove_spans": [
+          "20일",
+          "오후 4시",
+          "오늘"
+        ]
+      }
+    },
+    {
+      "case_id": "case_137",
+      "input": "내일 운동할 거야",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "거야",
+        "year": 2026,
+        "month": 4,
+        "day": 21,
+        "dayOfWeek": "화요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "expected": {
+        "title": "운동",
+        "year": 2026,
+        "month": 4,
+        "day": 21,
+        "dayOfWeek": "화요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "intermediate": {
+        "source_text": "내일 운동할 거야",
+        "date_text": "내일",
+        "time_text": null,
+        "remove_spans": [
+          "내일",
+          "운동할"
+        ]
+      }
+    }
+  ]
+}

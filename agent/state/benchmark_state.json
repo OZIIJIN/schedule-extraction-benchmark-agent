@@ -1,0 +1,36 @@
+{
+  "goal": {
+    "version": "v3",
+    "model": "gemma3:4b",
+    "target_score": 0.995,
+    "max_latency_sec": 6.0
+  },
+  "current": {
+    "latest_run_ref": "benchmark_span_raw-03.json",
+    "latest_score": 0.9978,
+    "latest_latency_sec": 6.686,
+    "latest_report": "outputs/v3/reports/2026-04-22-06.md"
+  },
+  "history": [
+    {
+      "version": "v3",
+      "run_ref": "benchmark_span_raw-03.json",
+      "summary_ref": "evaluation_summary-06.json",
+      "report_ref": "outputs/v3/reports/2026-04-22-06.md",
+      "score": 0.9978,
+      "latency_sec": 6.686,
+      "failure_case_count": 3,
+      "action": "prompt_simplify",
+      "reason": "title failures remain and latency is above target"
+    }
+  ],
+  "next_action": {
+    "action": "prompt_simplify",
+    "reason": "title failures remain and latency is above target",
+    "goal_status": "not_met",
+    "recommended_targets": [
+      "scripts/run_benchmark_v2.py",
+      "scripts/run_benchmark_v3.py"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "action": "prompt_simplify",
+  "reason": "title failures remain and latency is above target",
+  "goal_status": "not_met",
+  "recommended_targets": [
+    "scripts/run_benchmark_v2.py",
+    "scripts/run_benchmark_v3.py"
+  ]
+}
