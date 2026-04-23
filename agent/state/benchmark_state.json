@@ -6,10 +6,10 @@
     "max_latency_sec": 6.0
   },
   "current": {
-    "latest_run_ref": "benchmark_span_raw-04.json",
-    "latest_score": 0.9237,
-    "latest_latency_sec": 2.841,
-    "latest_report": "outputs/v3/reports/2026-04-24-01.md"
+    "latest_run_ref": "benchmark_span_raw-06.json",
+    "latest_score": 0.9452,
+    "latest_latency_sec": 4.844,
+    "latest_report": "outputs/v3/reports/2026-04-24-03.md"
   },
   "history": [
     {
@@ -33,15 +33,36 @@
       "failure_case_count": 103,
       "action": "prompt_or_resolver_update",
       "reason": "title failures remain (103 cases)"
+    },
+    {
+      "version": "v3",
+      "run_ref": "benchmark_span_raw-05.json",
+      "summary_ref": "evaluation_summary-08.json",
+      "report_ref": "outputs/v3/reports/2026-04-24-02.md",
+      "score": 0.0,
+      "latency_sec": null,
+      "failure_case_count": 150,
+      "action": "manual_review",
+      "reason": "no rule matched cleanly"
+    },
+    {
+      "version": "v3",
+      "run_ref": "benchmark_span_raw-06.json",
+      "summary_ref": "evaluation_summary-09.json",
+      "report_ref": "outputs/v3/reports/2026-04-24-03.md",
+      "score": 0.9452,
+      "latency_sec": 4.844,
+      "failure_case_count": 57,
+      "action": "resolver_update",
+      "reason": "date/time/type failures remain"
     }
   ],
   "next_action": {
-    "action": "prompt_or_resolver_update",
-    "reason": "title failures remain (103 cases)",
+    "action": "resolver_update",
+    "reason": "date/time/type failures remain",
     "goal_status": "not_met",
     "recommended_targets": [
-      "scripts/run_benchmark_v2.py",
-      "scripts/run_benchmark_v3.py",
+      "scripts/schedule_resolver_v2.py",
       "scripts/schedule_resolver_v3.py"
     ]
   }

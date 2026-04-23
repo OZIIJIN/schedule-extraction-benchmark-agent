@@ -1,0 +1,26 @@
+{
+  "models": {
+    "gemma3:4b": {
+      "case_count": 150,
+      "avg_score": 0.9452,
+      "avg_latency_sec": 4.844,
+      "json_valid_rate": 1.0,
+      "field_accuracy": {
+        "title": 0.64,
+        "year": 1.0,
+        "month": 1.0,
+        "day": 1.0,
+        "dayOfWeek": 1.0,
+        "hour": 0.9667,
+        "minute": 0.9667,
+        "ampm": 0.9667,
+        "type": 0.9667
+      },
+      "failure_counts": {
+        "TIME_NORMALIZATION_FAILED": 5,
+        "TITLE_EXTRACTION_FAILED": 54,
+        "TYPE_CLASSIFICATION_FAILED": 5
+      }
+    }
+  }
+}
