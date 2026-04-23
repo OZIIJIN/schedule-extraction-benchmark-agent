@@ -1,9 +1,10 @@
 {
-  "action": "prompt_simplify",
-  "reason": "title failures remain and latency is above target",
+  "action": "prompt_or_resolver_update",
+  "reason": "title failures remain (103 cases)",
   "goal_status": "not_met",
   "recommended_targets": [
     "scripts/run_benchmark_v2.py",
-    "scripts/run_benchmark_v3.py"
+    "scripts/run_benchmark_v3.py",
+    "scripts/schedule_resolver_v3.py"
   ]
 }

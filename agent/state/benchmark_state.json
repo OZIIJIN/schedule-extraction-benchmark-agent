@@ -6,10 +6,10 @@
     "max_latency_sec": 6.0
   },
   "current": {
-    "latest_run_ref": "benchmark_span_raw-03.json",
-    "latest_score": 0.9978,
-    "latest_latency_sec": 6.686,
-    "latest_report": "outputs/v3/reports/2026-04-22-06.md"
+    "latest_run_ref": "benchmark_span_raw-04.json",
+    "latest_score": 0.9237,
+    "latest_latency_sec": 2.841,
+    "latest_report": "outputs/v3/reports/2026-04-24-01.md"
   },
   "history": [
     {
@@ -22,15 +22,27 @@
       "failure_case_count": 3,
       "action": "prompt_simplify",
       "reason": "title failures remain and latency is above target"
+    },
+    {
+      "version": "v3",
+      "run_ref": "benchmark_span_raw-04.json",
+      "summary_ref": "evaluation_summary-07.json",
+      "report_ref": "outputs/v3/reports/2026-04-24-01.md",
+      "score": 0.9237,
+      "latency_sec": 2.841,
+      "failure_case_count": 103,
+      "action": "prompt_or_resolver_update",
+      "reason": "title failures remain (103 cases)"
     }
   ],
   "next_action": {
-    "action": "prompt_simplify",
-    "reason": "title failures remain and latency is above target",
+    "action": "prompt_or_resolver_update",
+    "reason": "title failures remain (103 cases)",
     "goal_status": "not_met",
     "recommended_targets": [
       "scripts/run_benchmark_v2.py",
-      "scripts/run_benchmark_v3.py"
+      "scripts/run_benchmark_v3.py",
+      "scripts/schedule_resolver_v3.py"
     ]
   }
 }
