@@ -6,10 +6,10 @@
     "max_latency_sec": 6.0
   },
   "current": {
-    "latest_run_ref": "benchmark_span_raw-06.json",
-    "latest_score": 0.9452,
-    "latest_latency_sec": 4.844,
-    "latest_report": "outputs/v3/reports/2026-04-24-03.md"
+    "latest_run_ref": "benchmark_span_raw-07.json",
+    "latest_score": 0.9852,
+    "latest_latency_sec": 4.928,
+    "latest_report": "outputs/v3/reports/2026-04-24-04.md"
   },
   "history": [
     {
@@ -55,14 +55,26 @@
       "failure_case_count": 57,
       "action": "resolver_update",
       "reason": "date/time/type failures remain"
+    },
+    {
+      "version": "v3",
+      "run_ref": "benchmark_span_raw-07.json",
+      "summary_ref": "evaluation_summary-10.json",
+      "report_ref": "outputs/v3/reports/2026-04-24-04.md",
+      "score": 0.9852,
+      "latency_sec": 4.928,
+      "failure_case_count": 20,
+      "action": "prompt_or_resolver_update",
+      "reason": "title failures remain (20 cases)"
     }
   ],
   "next_action": {
-    "action": "resolver_update",
-    "reason": "date/time/type failures remain",
+    "action": "prompt_or_resolver_update",
+    "reason": "title failures remain (20 cases)",
     "goal_status": "not_met",
     "recommended_targets": [
-      "scripts/schedule_resolver_v2.py",
+      "scripts/run_benchmark_v2.py",
+      "scripts/run_benchmark_v3.py",
       "scripts/schedule_resolver_v3.py"
     ]
   }

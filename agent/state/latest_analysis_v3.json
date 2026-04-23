@@ -2,28 +2,26 @@
   "version": "v3",
   "model": "gemma3:4b",
   "summary": {
-    "avg_score": 0.9452,
-    "avg_latency_sec": 4.844,
+    "avg_score": 0.9852,
+    "avg_latency_sec": 4.928,
     "json_valid_rate": 1.0,
     "field_accuracy": {
-      "title": 0.64,
+      "title": 0.8667,
       "year": 1.0,
       "month": 1.0,
       "day": 1.0,
       "dayOfWeek": 1.0,
-      "hour": 0.9667,
-      "minute": 0.9667,
-      "ampm": 0.9667,
-      "type": 0.9667
+      "hour": 1.0,
+      "minute": 1.0,
+      "ampm": 1.0,
+      "type": 1.0
     }
   },
   "failure_counts": {
-    "TIME_NORMALIZATION_FAILED": 5,
-    "TITLE_EXTRACTION_FAILED": 54,
-    "TYPE_CLASSIFICATION_FAILED": 5
+    "TITLE_EXTRACTION_FAILED": 20
   },
-  "failure_case_count": 57,
-  "dialog_failure_count": 13,
+  "failure_case_count": 20,
+  "dialog_failure_count": 6,
   "examples": [
     {
       "case_id": "case_001",
@@ -32,7 +30,7 @@
         "TITLE_EXTRACTION_FAILED"
       ],
       "actual": {
-        "title": "내일 아침 9시 반에 가서",
+        "title": "에",
         "year": 2026,
         "month": 4,
         "day": 21,
@@ -58,238 +56,10 @@
         "date_text": "내일",
         "time_text": "아침 9시 반",
         "remove_spans": [
-          "헬스장",
-          "PT"
-        ]
-      }
-    },
-    {
-      "case_id": "case_002",
-      "input": "이번주 금요일 저녁 7시 홍대입구역에서 동기 모임",
-      "failures": [
-        "TITLE_EXTRACTION_FAILED"
-      ],
-      "actual": {
-        "title": "에서",
-        "year": 2026,
-        "month": 4,
-        "day": 24,
-        "dayOfWeek": "금요일",
-        "hour": 7,
-        "minute": 0,
-        "ampm": "오후",
-        "type": "SCHEDULE"
-      },
-      "expected": {
-        "title": "동기 모임",
-        "year": 2026,
-        "month": 4,
-        "day": 24,
-        "dayOfWeek": "금요일",
-        "hour": 7,
-        "minute": 0,
-        "ampm": "오후",
-        "type": "SCHEDULE"
-      },
-      "intermediate": {
-        "source_text": "이번주 금요일 저녁 7시 홍대입구역에서 동기 모임",
-        "date_text": "이번주 금요일",
-        "time_text": "저녁 7시",
-        "remove_spans": [
-          "이번주",
-          "금요일",
-          "저녁",
-          "7시",
-          "홍대입구역",
-          "동기 모임"
-        ]
-      }
-    },
-    {
-      "case_id": "case_004",
-      "input": "내일 운동하기",
-      "failures": [
-        "TYPE_CLASSIFICATION_FAILED",
-        "TIME_NORMALIZATION_FAILED"
-      ],
-      "actual": {
-        "title": "운동",
-        "year": 2026,
-        "month": 4,
-        "day": 21,
-        "dayOfWeek": "화요일",
-        "hour": 9,
-        "minute": 30,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "expected": {
-        "title": "운동",
-        "year": 2026,
-        "month": 4,
-        "day": 21,
-        "dayOfWeek": "화요일",
-        "hour": null,
-        "minute": null,
-        "ampm": null,
-        "type": "TODO"
-      },
-      "intermediate": {
-        "source_text": "내일 운동하기",
-        "date_text": "내일",
-        "time_text": "아침 9시 반",
-        "remove_spans": [
           "내일",
-          "아침 9시 반"
-        ]
-      }
-    },
-    {
-      "case_id": "case_013",
-      "input": "내일 아침 7시 조깅",
-      "failures": [
-        "TITLE_EXTRACTION_FAILED"
-      ],
-      "actual": {
-        "title": "내일",
-        "year": 2026,
-        "month": 4,
-        "day": 21,
-        "dayOfWeek": "화요일",
-        "hour": 7,
-        "minute": 0,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "expected": {
-        "title": "조깅",
-        "year": 2026,
-        "month": 4,
-        "day": 21,
-        "dayOfWeek": "화요일",
-        "hour": 7,
-        "minute": 0,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "intermediate": {
-        "source_text": "내일 아침 7시 조깅",
-        "date_text": "내일",
-        "time_text": "아침 7시",
-        "remove_spans": [
-          "아침 7시",
-          "조깅"
-        ]
-      }
-    },
-    {
-      "case_id": "case_021",
-      "input": "5월 3일 오전 11시 브런치",
-      "failures": [
-        "TITLE_EXTRACTION_FAILED"
-      ],
-      "actual": {
-        "title": "5월 3일 오전 11시",
-        "year": 2026,
-        "month": 5,
-        "day": 3,
-        "dayOfWeek": "일요일",
-        "hour": 11,
-        "minute": 0,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "expected": {
-        "title": "브런치",
-        "year": 2026,
-        "month": 5,
-        "day": 3,
-        "dayOfWeek": "일요일",
-        "hour": 11,
-        "minute": 0,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "intermediate": {
-        "source_text": "5월 3일 오전 11시 브런치",
-        "date_text": "5월 3일",
-        "time_text": "오전 11시",
-        "remove_spans": [
-          "브런치"
-        ]
-      }
-    },
-    {
-      "case_id": "case_023",
-      "input": "다음 달 2일 오전 10시 이사 준비",
-      "failures": [
-        "TITLE_EXTRACTION_FAILED"
-      ],
-      "actual": {
-        "title": "다음 달 2일 오전 10시",
-        "year": 2026,
-        "month": 5,
-        "day": 2,
-        "dayOfWeek": "토요일",
-        "hour": 10,
-        "minute": 0,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "expected": {
-        "title": "이사 준비",
-        "year": 2026,
-        "month": 5,
-        "day": 2,
-        "dayOfWeek": "토요일",
-        "hour": 10,
-        "minute": 0,
-        "ampm": "오전",
-        "type": "SCHEDULE"
-      },
-      "intermediate": {
-        "source_text": "다음 달 2일 오전 10시 이사 준비",
-        "date_text": "다음 달 2일",
-        "time_text": "오전 10시",
-        "remove_spans": [
-          "이사 준비"
-        ]
-      }
-    },
-    {
-      "case_id": "case_025",
-      "input": "내일 10시 정각 코드 리뷰",
-      "failures": [
-        "TITLE_EXTRACTION_FAILED"
-      ],
-      "actual": {
-        "title": "내일 10시 정각",
-        "year": 2026,
-        "month": 4,
-        "day": 21,
-        "dayOfWeek": "화요일",
-        "hour": 10,
-        "minute": 0,
-        "ampm": null,
-        "type": "SCHEDULE"
-      },
-      "expected": {
-        "title": "코드 리뷰",
-        "year": 2026,
-        "month": 4,
-        "day": 21,
-        "dayOfWeek": "화요일",
-        "hour": 10,
-        "minute": 0,
-        "ampm": null,
-        "type": "SCHEDULE"
-      },
-      "intermediate": {
-        "source_text": "내일 10시 정각 코드 리뷰",
-        "date_text": "내일",
-        "time_text": "10시 정각",
-        "remove_spans": [
-          "코드 리뷰"
+          "아침 9시 반",
+          "헬스장 가서",
+          "PT"
         ]
       }
     },
@@ -300,7 +70,7 @@
         "TITLE_EXTRACTION_FAILED"
       ],
       "actual": {
-        "title": "모레 오후 3시 15분",
+        "title": "오후 3시 15분 병원 진료",
         "year": 2026,
         "month": 4,
         "day": 22,
@@ -322,25 +92,170 @@
         "type": "SCHEDULE"
       },
       "intermediate": {
-        "source_text": "모레 오후 3시 15분 병원 진료",
-        "date_text": "모레",
-        "time_text": "오후 3시 15분",
-        "remove_spans": [
-          "병원 진료"
-        ]
+        "source_text": null,
+        "date_text": null,
+        "time_text": null,
+        "remove_spans": []
       }
     },
     {
-      "case_id": "case_034",
-      "input": "내일 저녁에 장보기",
+      "case_id": "case_072",
+      "input": "이번 달 24일 오후 5시 멘토링",
       "failures": [
         "TITLE_EXTRACTION_FAILED"
       ],
       "actual": {
-        "title": "내일 에 장보기",
+        "title": "이번 달 24일 오후 5시 멘토링",
         "year": 2026,
         "month": 4,
-        "day": 21,
+        "day": 24,
+        "dayOfWeek": "금요일",
+        "hour": 5,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "expected": {
+        "title": "멘토링",
+        "year": 2026,
+        "month": 4,
+        "day": 24,
+        "dayOfWeek": "금요일",
+        "hour": 5,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "intermediate": {
+        "source_text": null,
+        "date_text": null,
+        "time_text": null,
+        "remove_spans": []
+      }
+    },
+    {
+      "case_id": "case_074",
+      "input": "다음 달 4일 오후 2시 법무 검토",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "오후 2시",
+        "year": 2026,
+        "month": 5,
+        "day": 4,
+        "dayOfWeek": "월요일",
+        "hour": 2,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "expected": {
+        "title": "법무 검토",
+        "year": 2026,
+        "month": 5,
+        "day": 4,
+        "dayOfWeek": "월요일",
+        "hour": 2,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "intermediate": {
+        "source_text": "다음 달 4일 오후 2시 법무 검토",
+        "date_text": "다음 달 4일",
+        "time_text": "오후 2시",
+        "remove_spans": [
+          "다음 달 4일",
+          "법무 검토"
+        ]
+      }
+    },
+    {
+      "case_id": "case_082",
+      "input": "다음주 목요일 여권 사진 준비",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "다음주 목요일",
+        "year": 2026,
+        "month": 4,
+        "day": 30,
+        "dayOfWeek": "목요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "expected": {
+        "title": "여권 사진 준비",
+        "year": 2026,
+        "month": 4,
+        "day": 30,
+        "dayOfWeek": "목요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "intermediate": {
+        "source_text": "다음주 목요일 여권 사진 준비",
+        "date_text": "다음주 목요일",
+        "time_text": null,
+        "remove_spans": [
+          "여권 사진 준비"
+        ]
+      }
+    },
+    {
+      "case_id": "case_083",
+      "input": "다음 달 3일 여행 가방 싸기",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "다음 달 3일",
+        "year": 2026,
+        "month": 5,
+        "day": 3,
+        "dayOfWeek": "일요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "expected": {
+        "title": "여행 가방 싸기",
+        "year": 2026,
+        "month": 5,
+        "day": 3,
+        "dayOfWeek": "일요일",
+        "hour": null,
+        "minute": null,
+        "ampm": null,
+        "type": "TODO"
+      },
+      "intermediate": {
+        "source_text": "다음 달 3일 여행 가방 싸기",
+        "date_text": "다음 달 3일",
+        "time_text": null,
+        "remove_spans": [
+          "여행 가방 싸기"
+        ]
+      }
+    },
+    {
+      "case_id": "case_084",
+      "input": "4월 28일 병원 서류 챙기기",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "4월 28일",
+        "year": 2026,
+        "month": 4,
+        "day": 28,
         "dayOfWeek": "화요일",
         "hour": null,
         "minute": null,
@@ -348,10 +263,10 @@
         "type": "TODO"
       },
       "expected": {
-        "title": "장보기",
+        "title": "병원 서류 챙기기",
         "year": 2026,
         "month": 4,
-        "day": 21,
+        "day": 28,
         "dayOfWeek": "화요일",
         "hour": null,
         "minute": null,
@@ -359,50 +274,120 @@
         "type": "TODO"
       },
       "intermediate": {
-        "source_text": "내일 저녁에 장보기",
-        "date_text": "내일",
-        "time_text": "저녁",
+        "source_text": "4월 28일 병원 서류 챙기기",
+        "date_text": "4월 28일",
+        "time_text": null,
         "remove_spans": [
-          "저녁"
+          "병원 서류 챙기기"
         ]
       }
     },
     {
-      "case_id": "case_042",
-      "input": "오늘 오전 11시 20분 고객 통화",
+      "case_id": "case_086",
+      "input": "오늘 오후 열두시 반 점심 회의",
       "failures": [
         "TITLE_EXTRACTION_FAILED"
       ],
       "actual": {
-        "title": "오늘 고객 통화",
+        "title": "오후 열두시 반 점심 회의",
         "year": 2026,
         "month": 4,
         "day": 20,
         "dayOfWeek": "월요일",
-        "hour": 11,
-        "minute": 20,
-        "ampm": "오전",
+        "hour": 12,
+        "minute": 30,
+        "ampm": "오후",
         "type": "SCHEDULE"
       },
       "expected": {
-        "title": "고객 통화",
+        "title": "점심 회의",
         "year": 2026,
         "month": 4,
         "day": 20,
         "dayOfWeek": "월요일",
-        "hour": 11,
-        "minute": 20,
-        "ampm": "오전",
+        "hour": 12,
+        "minute": 30,
+        "ampm": "오후",
         "type": "SCHEDULE"
       },
       "intermediate": {
-        "source_text": "오늘 오전 11시 20분 고객 통화",
+        "source_text": "오늘 오후 열두시 반 점심 회의",
         "date_text": "오늘",
-        "time_text": "오전 11시 20분",
+        "time_text": "오후 12시 30분",
         "remove_spans": [
-          "오전",
-          "11시 20분"
+          "오늘",
+          "오후 12시 30분"
         ]
+      }
+    },
+    {
+      "case_id": "case_095",
+      "input": "4/22 16시 법인카드 정산",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "4/22 16시 법인카드 정산",
+        "year": 2026,
+        "month": 4,
+        "day": 22,
+        "dayOfWeek": "수요일",
+        "hour": 4,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "expected": {
+        "title": "법인카드 정산",
+        "year": 2026,
+        "month": 4,
+        "day": 22,
+        "dayOfWeek": "수요일",
+        "hour": 4,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "intermediate": {
+        "source_text": null,
+        "date_text": null,
+        "time_text": null,
+        "remove_spans": []
+      }
+    },
+    {
+      "case_id": "case_104",
+      "input": "다다음주 목요일 오후 5시 예산 회의",
+      "failures": [
+        "TITLE_EXTRACTION_FAILED"
+      ],
+      "actual": {
+        "title": "다다음주 목요일 오후 5시 예산 회의",
+        "year": 2026,
+        "month": 5,
+        "day": 7,
+        "dayOfWeek": "목요일",
+        "hour": 5,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "expected": {
+        "title": "예산 회의",
+        "year": 2026,
+        "month": 5,
+        "day": 7,
+        "dayOfWeek": "목요일",
+        "hour": 5,
+        "minute": 0,
+        "ampm": "오후",
+        "type": "SCHEDULE"
+      },
+      "intermediate": {
+        "source_text": null,
+        "date_text": null,
+        "time_text": null,
+        "remove_spans": []
       }
     }
   ]

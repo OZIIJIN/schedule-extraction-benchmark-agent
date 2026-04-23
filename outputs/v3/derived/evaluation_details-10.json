@@ -1,0 +1,7818 @@
+[
+  {
+    "case_id": "case_001",
+    "model": "gemma3:4b",
+    "input": "내일 아침 9시 반에 헬스장 가서 PT",
+    "latency_sec": 5.809,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "헬스장 PT",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 30,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 아침 9시 반에 헬스장 가서 PT",
+      "date_text": "내일",
+      "time_text": "아침 9시 반",
+      "remove_spans": [
+        "내일",
+        "아침 9시 반",
+        "헬스장 가서",
+        "PT"
+      ]
+    },
+    "actual": {
+      "title": "에",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 30,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_002",
+    "model": "gemma3:4b",
+    "input": "이번주 금요일 저녁 7시 홍대입구역에서 동기 모임",
+    "latency_sec": 5.494,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "동기 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 금요일 저녁 7시 홍대입구역에서 동기 모임",
+      "date_text": "이번주 금요일",
+      "time_text": "저녁 7시",
+      "remove_spans": [
+        "이번주 금요일 저녁 7시",
+        "홍대입구역에서",
+        "동기 모임"
+      ]
+    },
+    "actual": {
+      "title": "동기 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_003",
+    "model": "gemma3:4b",
+    "input": "다음주 수요일 오후 2시 주간회의",
+    "latency_sec": 4.893,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "주간회의",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 수요일 오후 2시 주간회의",
+      "date_text": "다음주 수요일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "다음주 수요일 오후 2시 주간회의"
+      ]
+    },
+    "actual": {
+      "title": "주간회의",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_004",
+    "model": "gemma3:4b",
+    "input": "내일 운동하기",
+    "latency_sec": 4.3,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "운동",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "내일 운동하기",
+      "date_text": "내일",
+      "time_text": null,
+      "remove_spans": [
+        "내일",
+        "운동하기"
+      ]
+    },
+    "actual": {
+      "title": "운동",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_005",
+    "model": "gemma3:4b",
+    "input": "모레 오전 10시 치과 예약",
+    "latency_sec": 4.936,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "치과 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 오전 10시 치과 예약",
+      "date_text": "모레",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "모레",
+        "오전 10시",
+        "치과 예약"
+      ]
+    },
+    "actual": {
+      "title": "치과 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_006",
+    "model": "gemma3:4b",
+    "input": "다음주 월요일 오후 3시 프로젝트 리뷰",
+    "latency_sec": 4.761,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "프로젝트 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 월요일 오후 3시 프로젝트 리뷰",
+      "date_text": "다음주 월요일",
+      "time_text": "오후 3시",
+      "remove_spans": [
+        "다음주 월요일 오후 3시"
+      ]
+    },
+    "actual": {
+      "title": "프로젝트 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_007",
+    "model": "gemma3:4b",
+    "input": "이번주 토요일 가족 외식",
+    "latency_sec": 4.392,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "가족 외식",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "이번주 토요일 가족 외식",
+      "date_text": "이번주 토요일",
+      "time_text": null,
+      "remove_spans": [
+        "이번주 토요일"
+      ]
+    },
+    "actual": {
+      "title": "가족 외식",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_008",
+    "model": "gemma3:4b",
+    "input": "내일 오후 1시 점심 약속",
+    "latency_sec": 4.924,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "점심 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 오후 1시 점심 약속",
+      "date_text": "내일",
+      "time_text": "오후 1시",
+      "remove_spans": [
+        "내일",
+        "오후 1시",
+        "점심 약속"
+      ]
+    },
+    "actual": {
+      "title": "점심 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_009",
+    "model": "gemma3:4b",
+    "input": "다음주 금요일 저녁 6시 엄마 생신 저녁",
+    "latency_sec": 5.168,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "엄마 생신 저녁",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 금요일 저녁 6시 엄마 생신 저녁",
+      "date_text": "다음주 금요일",
+      "time_text": "저녁 6시",
+      "remove_spans": [
+        "다음주 금요일 저녁 6시",
+        "엄마 생신 저녁"
+      ]
+    },
+    "actual": {
+      "title": "엄마 생신 저녁",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_010",
+    "model": "gemma3:4b",
+    "input": "오늘 저녁 8시 영어 회화",
+    "latency_sec": 4.586,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "영어 회화",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 저녁 8시 영어 회화",
+      "date_text": "오늘",
+      "time_text": "저녁 8시",
+      "remove_spans": [
+        "오늘 저녁 8시"
+      ]
+    },
+    "actual": {
+      "title": "영어 회화",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_011",
+    "model": "gemma3:4b",
+    "input": "이번주 목요일 보고서 제출",
+    "latency_sec": 4.405,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "보고서 제출",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "이번주 목요일 보고서 제출",
+      "date_text": "이번주 목요일",
+      "time_text": null,
+      "remove_spans": [
+        "이번주 목요일"
+      ]
+    },
+    "actual": {
+      "title": "보고서 제출",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_012",
+    "model": "gemma3:4b",
+    "input": "다음주 화요일 오전 11시 팀 점심",
+    "latency_sec": 4.895,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "팀 점심",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 화요일 오전 11시 팀 점심",
+      "date_text": "다음주 화요일",
+      "time_text": "오전 11시",
+      "remove_spans": [
+        "다음주 화요일 오전 11시"
+      ]
+    },
+    "actual": {
+      "title": "팀 점심",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_013",
+    "model": "gemma3:4b",
+    "input": "내일 아침 7시 조깅",
+    "latency_sec": 4.814,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "조깅",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 아침 7시 조깅",
+      "date_text": "내일",
+      "time_text": "아침 7시",
+      "remove_spans": [
+        "내일",
+        "아침 7시",
+        "조깅"
+      ]
+    },
+    "actual": {
+      "title": "조깅",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_014",
+    "model": "gemma3:4b",
+    "input": "낼 오후 4시 은행 상담",
+    "latency_sec": 4.588,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "은행 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "낼 오후 4시 은행 상담",
+      "date_text": "낼",
+      "time_text": "오후 4시",
+      "remove_spans": [
+        "낼",
+        "오후 4시"
+      ]
+    },
+    "actual": {
+      "title": "은행 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_015",
+    "model": "gemma3:4b",
+    "input": "모레 저녁 8시 반 영화 보기",
+    "latency_sec": 4.805,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "영화 보기",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 8,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 저녁 8시 반 영화 보기",
+      "date_text": "모레",
+      "time_text": "저녁 8시 반",
+      "remove_spans": [
+        "모레",
+        "저녁 8시 반"
+      ]
+    },
+    "actual": {
+      "title": "영화 보기",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 8,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_016",
+    "model": "gemma3:4b",
+    "input": "이번주 수요일 낮 12시 팀 회식",
+    "latency_sec": 5.028,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "팀 회식",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 수요일 낮 12시 팀 회식",
+      "date_text": "이번주 수요일",
+      "time_text": "낮 12시",
+      "remove_spans": [
+        "이번주 수요일 낮 12시",
+        "팀 회식"
+      ]
+    },
+    "actual": {
+      "title": "팀 회식",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_017",
+    "model": "gemma3:4b",
+    "input": "이번주 일요일 오전 9시 등산",
+    "latency_sec": 4.878,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "등산",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 일요일 오전 9시 등산",
+      "date_text": "이번주 일요일",
+      "time_text": "오전 9시",
+      "remove_spans": [
+        "이번주 일요일",
+        "오전 9시"
+      ]
+    },
+    "actual": {
+      "title": "등산",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_018",
+    "model": "gemma3:4b",
+    "input": "다음주 목요일 아침 8시 건강검진",
+    "latency_sec": 5.002,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 목요일 아침 8시 건강검진",
+      "date_text": "다음주 목요일",
+      "time_text": "아침 8시",
+      "remove_spans": [
+        "다음주 목요일 아침 8시 건강검진"
+      ]
+    },
+    "actual": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_019",
+    "model": "gemma3:4b",
+    "input": "다음주 일요일 밤 10시 공항 픽업",
+    "latency_sec": 5.18,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "공항 픽업",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 일요일 밤 10시 공항 픽업",
+      "date_text": "다음주 일요일",
+      "time_text": "밤 10시",
+      "remove_spans": [
+        "다음주 일요일 밤 10시",
+        "공항 픽업"
+      ]
+    },
+    "actual": {
+      "title": "공항 픽업",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_020",
+    "model": "gemma3:4b",
+    "input": "4월 25일 오후 2시 결혼식",
+    "latency_sec": 5.026,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "결혼식",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "4월 25일 오후 2시 결혼식",
+      "date_text": "4월 25일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "4월 25일 오후 2시"
+      ]
+    },
+    "actual": {
+      "title": "결혼식",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_021",
+    "model": "gemma3:4b",
+    "input": "5월 3일 오전 11시 브런치",
+    "latency_sec": 5.143,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "브런치",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5월 3일 오전 11시 브런치",
+      "date_text": "5월 3일",
+      "time_text": "오전 11시",
+      "remove_spans": [
+        "5월 3일",
+        "오전 11시"
+      ]
+    },
+    "actual": {
+      "title": "브런치",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_022",
+    "model": "gemma3:4b",
+    "input": "이번 달 30일 오후 6시 세미나",
+    "latency_sec": 5.187,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "세미나",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번 달 30일 오후 6시 세미나",
+      "date_text": "이번 달 30일",
+      "time_text": "오후 6시",
+      "remove_spans": [
+        "이번 달 30일 오후 6시 세미나"
+      ]
+    },
+    "actual": {
+      "title": "세미나",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_023",
+    "model": "gemma3:4b",
+    "input": "다음 달 2일 오전 10시 이사 준비",
+    "latency_sec": 5.246,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "이사 준비",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음 달 2일 오전 10시 이사 준비",
+      "date_text": "다음 달 2일",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "다음 달 2일 오전 10시",
+        "이사 준비"
+      ]
+    },
+    "actual": {
+      "title": "이사 준비",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_024",
+    "model": "gemma3:4b",
+    "input": "오늘 오후 세시 반 고객 미팅",
+    "latency_sec": 4.783,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "고객 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 3,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 오후 세시 반 고객 미팅",
+      "date_text": "오늘",
+      "time_text": "오후 세시 반",
+      "remove_spans": [
+        "오늘",
+        "오후 세시 반"
+      ]
+    },
+    "actual": {
+      "title": "고객 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 3,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_025",
+    "model": "gemma3:4b",
+    "input": "내일 10시 정각 코드 리뷰",
+    "latency_sec": 5.015,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "코드 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 10시 정각 코드 리뷰",
+      "date_text": "내일",
+      "time_text": "10시 정각",
+      "remove_spans": [
+        "내일",
+        "10시 정각",
+        "코드 리뷰"
+      ]
+    },
+    "actual": {
+      "title": "코드 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_029",
+    "model": "gemma3:4b",
+    "input": "오늘 점심 약속",
+    "latency_sec": 4.46,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "점심 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "오늘 점심 약속",
+      "date_text": "오늘",
+      "time_text": null,
+      "remove_spans": [
+        "오늘 점심 약속"
+      ]
+    },
+    "actual": {
+      "title": "점심 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_031",
+    "model": "gemma3:4b",
+    "input": "모레 오후 3시 15분 병원 진료",
+    "latency_sec": 2.942,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "병원 진료",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 3,
+      "minute": 15,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": null,
+      "date_text": null,
+      "time_text": null,
+      "remove_spans": []
+    },
+    "actual": {
+      "title": "오후 3시 15분 병원 진료",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 3,
+      "minute": 15,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_032",
+    "model": "gemma3:4b",
+    "input": "다음주 화요일 새벽 6시 공항 출발",
+    "latency_sec": 5.127,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "공항 출발",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 화요일 새벽 6시 공항 출발",
+      "date_text": "다음주 화요일",
+      "time_text": "새벽 6시",
+      "remove_spans": [
+        "다음주 화요일 새벽 6시",
+        "공항 출발"
+      ]
+    },
+    "actual": {
+      "title": "공항 출발",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_033",
+    "model": "gemma3:4b",
+    "input": "이번주 토요일 밤 11시 온라인 게임 모임",
+    "latency_sec": 5.072,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "온라인 게임 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 토요일 밤 11시 온라인 게임 모임",
+      "date_text": "이번주 토요일",
+      "time_text": "밤 11시",
+      "remove_spans": [
+        "이번주 토요일 밤 11시"
+      ]
+    },
+    "actual": {
+      "title": "온라인 게임 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_034",
+    "model": "gemma3:4b",
+    "input": "내일 저녁에 장보기",
+    "latency_sec": 4.62,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "내일 저녁에 장보기",
+      "date_text": "내일",
+      "time_text": "저녁",
+      "remove_spans": [
+        "내일 저녁에"
+      ]
+    },
+    "actual": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_035",
+    "model": "gemma3:4b",
+    "input": "다음주 월요일 오전 0시 서버 점검",
+    "latency_sec": 5.183,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "서버 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 월요일 오전 0시 서버 점검",
+      "date_text": "다음주 월요일",
+      "time_text": "오전 0시",
+      "remove_spans": [
+        "다음주 월요일 오전 0시",
+        "서버 점검"
+      ]
+    },
+    "actual": {
+      "title": "서버 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_036",
+    "model": "gemma3:4b",
+    "input": "이번주 목요일 오후 12시 반 점심 회의",
+    "latency_sec": 5.308,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "점심 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 목요일 오후 12시 반 점심 회의",
+      "date_text": "이번주 목요일",
+      "time_text": "오후 12시 반",
+      "remove_spans": [
+        "이번주 목요일 오후 12시 반 점심 회의"
+      ]
+    },
+    "actual": {
+      "title": "점심 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_037",
+    "model": "gemma3:4b",
+    "input": "다다음주 월요일 오후 2시 스프린트 계획",
+    "latency_sec": 5.315,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "스프린트 계획",
+      "year": 2026,
+      "month": 5,
+      "day": 4,
+      "dayOfWeek": "월요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다다음주 월요일 오후 2시 스프린트 계획",
+      "date_text": "다다음주 월요일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "다다음주 월요일 오후 2시",
+        "스프린트 계획"
+      ]
+    },
+    "actual": {
+      "title": "스프린트 계획",
+      "year": 2026,
+      "month": 5,
+      "day": 4,
+      "dayOfWeek": "월요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_038",
+    "model": "gemma3:4b",
+    "input": "다음주 금욜 저녁 7시 친구 약속",
+    "latency_sec": 5.201,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "친구 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 금욜 저녁 7시 친구 약속",
+      "date_text": "다음주 금욜",
+      "time_text": "저녁 7시",
+      "remove_spans": [
+        "다음주 금욜 저녁 7시",
+        "친구 약속"
+      ]
+    },
+    "actual": {
+      "title": "친구 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_039",
+    "model": "gemma3:4b",
+    "input": "이번 주 화욜 오전 8시 스터디",
+    "latency_sec": 5.116,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "스터디",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번 주 화욜 오전 8시 스터디",
+      "date_text": "이번 주 화욜",
+      "time_text": "오전 8시",
+      "remove_spans": [
+        "이번 주 화욜 오전 8시 스터디"
+      ]
+    },
+    "actual": {
+      "title": "스터디",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_040",
+    "model": "gemma3:4b",
+    "input": "오늘 밤 열한시 독서 모임",
+    "latency_sec": 4.718,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "독서 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 밤 열한시 독서 모임",
+      "date_text": "오늘",
+      "time_text": "밤 열한시",
+      "remove_spans": [
+        "오늘 밤 열한시"
+      ]
+    },
+    "actual": {
+      "title": "독서 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_041",
+    "model": "gemma3:4b",
+    "input": "오늘 오후 4시 디자인 리뷰",
+    "latency_sec": 4.789,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "디자인 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 오후 4시 디자인 리뷰",
+      "date_text": "오늘",
+      "time_text": "오후 4시",
+      "remove_spans": [
+        "오늘",
+        "오후 4시"
+      ]
+    },
+    "actual": {
+      "title": "디자인 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_042",
+    "model": "gemma3:4b",
+    "input": "오늘 오전 11시 20분 고객 통화",
+    "latency_sec": 5.184,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "고객 통화",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 20,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 오전 11시 20분 고객 통화",
+      "date_text": "오늘",
+      "time_text": "오전 11시 20분",
+      "remove_spans": [
+        "오늘 오전 11시 20분"
+      ]
+    },
+    "actual": {
+      "title": "고객 통화",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 20,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_043",
+    "model": "gemma3:4b",
+    "input": "오늘 밤 9시 반 요가 수업",
+    "latency_sec": 4.872,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "요가 수업",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 9,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 밤 9시 반 요가 수업",
+      "date_text": "오늘",
+      "time_text": "밤 9시 반",
+      "remove_spans": [
+        "오늘",
+        "밤 9시 반"
+      ]
+    },
+    "actual": {
+      "title": "요가 수업",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 9,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_044",
+    "model": "gemma3:4b",
+    "input": "내일 새벽 5시 공항버스",
+    "latency_sec": 5.046,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "공항버스",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 새벽 5시 공항버스",
+      "date_text": "내일",
+      "time_text": "새벽 5시",
+      "remove_spans": [
+        "내일",
+        "새벽 5시",
+        "공항버스"
+      ]
+    },
+    "actual": {
+      "title": "공항버스",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_045",
+    "model": "gemma3:4b",
+    "input": "내일 낮 1시 부모님 전화",
+    "latency_sec": 5.061,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "부모님 전화",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 낮 1시 부모님 전화",
+      "date_text": "내일",
+      "time_text": "낮 1시",
+      "remove_spans": [
+        "내일",
+        "낮 1시",
+        "부모님 전화"
+      ]
+    },
+    "actual": {
+      "title": "부모님 전화",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_046",
+    "model": "gemma3:4b",
+    "input": "내일 저녁 6시 반 회식",
+    "latency_sec": 4.929,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "회식",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 6,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 저녁 6시 반 회식",
+      "date_text": null,
+      "time_text": "저녁 6시 반",
+      "remove_spans": [
+        "내일",
+        "저녁 6시 반"
+      ]
+    },
+    "actual": {
+      "title": "회식",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 6,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_047",
+    "model": "gemma3:4b",
+    "input": "모레 오후 4시 45분 피부과",
+    "latency_sec": 5.406,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "피부과",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 45,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 오후 4시 45분 피부과",
+      "date_text": "모레",
+      "time_text": "오후 4시 45분",
+      "remove_spans": [
+        "모레",
+        "오후 4시 45분",
+        "피부과"
+      ]
+    },
+    "actual": {
+      "title": "피부과",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 45,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_048",
+    "model": "gemma3:4b",
+    "input": "모레 아침 8시 세탁소",
+    "latency_sec": 5.084,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "세탁소",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 아침 8시 세탁소",
+      "date_text": "모레",
+      "time_text": "아침 8시",
+      "remove_spans": [
+        "모레",
+        "아침 8시",
+        "세탁소"
+      ]
+    },
+    "actual": {
+      "title": "세탁소",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_049",
+    "model": "gemma3:4b",
+    "input": "이번주 월요일 오후 5시 원온원",
+    "latency_sec": 5.158,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "원온원",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 월요일 오후 5시 원온원",
+      "date_text": "이번주 월요일",
+      "time_text": "오후 5시",
+      "remove_spans": [
+        "이번주 월요일 오후 5시",
+        "원온원"
+      ]
+    },
+    "actual": {
+      "title": "원온원",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_050",
+    "model": "gemma3:4b",
+    "input": "이번주 화요일 오전 10시 제품 데모",
+    "latency_sec": 5.24,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "제품 데모",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 화요일 오전 10시 제품 데모",
+      "date_text": "이번주 화요일",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "이번주 화요일 오전 10시",
+        "제품 데모"
+      ]
+    },
+    "actual": {
+      "title": "제품 데모",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_051",
+    "model": "gemma3:4b",
+    "input": "이번주 수요일 오후 7시 농구",
+    "latency_sec": 4.957,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "농구",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 수요일 오후 7시 농구",
+      "date_text": "이번주 수요일",
+      "time_text": "오후 7시",
+      "remove_spans": [
+        "이번주 수요일 오후 7시"
+      ]
+    },
+    "actual": {
+      "title": "농구",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_052",
+    "model": "gemma3:4b",
+    "input": "이번주 목요일 오전 6시 수영",
+    "latency_sec": 5.016,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "수영",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 목요일 오전 6시 수영",
+      "date_text": "이번주 목요일",
+      "time_text": "오전 6시",
+      "remove_spans": [
+        "이번주 목요일 오전 6시 수영"
+      ]
+    },
+    "actual": {
+      "title": "수영",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_053",
+    "model": "gemma3:4b",
+    "input": "이번주 금요일 밤 10시 라이브 방송",
+    "latency_sec": 5.104,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "라이브 방송",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 금요일 밤 10시 라이브 방송",
+      "date_text": "이번주 금요일",
+      "time_text": "밤 10시",
+      "remove_spans": [
+        "이번주 금요일",
+        "밤 10시"
+      ]
+    },
+    "actual": {
+      "title": "라이브 방송",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_054",
+    "model": "gemma3:4b",
+    "input": "이번주 토요일 낮 12시 가족 식사",
+    "latency_sec": 5.254,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "가족 식사",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 토요일 낮 12시 가족 식사",
+      "date_text": "이번주 토요일",
+      "time_text": "낮 12시",
+      "remove_spans": [
+        "이번주 토요일 낮 12시",
+        "가족 식사"
+      ]
+    },
+    "actual": {
+      "title": "가족 식사",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_055",
+    "model": "gemma3:4b",
+    "input": "이번주 일요일 저녁 5시 산책",
+    "latency_sec": 5.04,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "산책",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 일요일 저녁 5시 산책",
+      "date_text": "이번주 일요일",
+      "time_text": "저녁 5시",
+      "remove_spans": [
+        "이번주 일요일 저녁 5시"
+      ]
+    },
+    "actual": {
+      "title": "산책",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_056",
+    "model": "gemma3:4b",
+    "input": "다음주 월요일 오전 9시 전체 회의",
+    "latency_sec": 5.188,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "전체 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 월요일 오전 9시 전체 회의",
+      "date_text": "다음주 월요일",
+      "time_text": "오전 9시",
+      "remove_spans": [
+        "다음주 월요일 오전 9시",
+        "전체 회의"
+      ]
+    },
+    "actual": {
+      "title": "전체 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_057",
+    "model": "gemma3:4b",
+    "input": "다음주 화요일 오후 1시 반 점심 인터뷰",
+    "latency_sec": 5.109,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "점심 인터뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 화요일 오후 1시 반 점심 인터뷰",
+      "date_text": "다음주 화요일",
+      "time_text": "오후 1시 반",
+      "remove_spans": [
+        "다음주 화요일 오후 1시 반"
+      ]
+    },
+    "actual": {
+      "title": "점심 인터뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_058",
+    "model": "gemma3:4b",
+    "input": "다음주 수요일 오후 6시 네일 예약",
+    "latency_sec": 5.081,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "네일 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 수요일 오후 6시 네일 예약",
+      "date_text": "다음주 수요일",
+      "time_text": "오후 6시",
+      "remove_spans": [
+        "다음주 수요일 오후 6시 네일 예약"
+      ]
+    },
+    "actual": {
+      "title": "네일 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_059",
+    "model": "gemma3:4b",
+    "input": "다음주 목요일 밤 11시 배포 점검",
+    "latency_sec": 5.205,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "배포 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 목요일 밤 11시 배포 점검",
+      "date_text": "다음주 목요일",
+      "time_text": "밤 11시",
+      "remove_spans": [
+        "다음주 목요일 밤 11시 배포 점검"
+      ]
+    },
+    "actual": {
+      "title": "배포 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_060",
+    "model": "gemma3:4b",
+    "input": "다음주 금요일 오전 7시 기차 예매",
+    "latency_sec": 5.133,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "기차 예매",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 금요일 오전 7시 기차 예매",
+      "date_text": "다음주 금요일",
+      "time_text": "오전 7시",
+      "remove_spans": [
+        "다음주 금요일 오전 7시 기차 예매"
+      ]
+    },
+    "actual": {
+      "title": "기차 예매",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_061",
+    "model": "gemma3:4b",
+    "input": "다음주 토요일 오후 3시 미술관 관람",
+    "latency_sec": 5.217,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "미술관 관람",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 토요일 오후 3시 미술관 관람",
+      "date_text": "다음주 토요일",
+      "time_text": "오후 3시",
+      "remove_spans": [
+        "다음주 토요일 오후 3시",
+        "미술관 관람"
+      ]
+    },
+    "actual": {
+      "title": "미술관 관람",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_062",
+    "model": "gemma3:4b",
+    "input": "다음주 일요일 오전 10시 교회",
+    "latency_sec": 5.101,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "교회",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 일요일 오전 10시 교회",
+      "date_text": "다음주 일요일",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "다음주 일요일",
+        "오전 10시"
+      ]
+    },
+    "actual": {
+      "title": "교회",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_063",
+    "model": "gemma3:4b",
+    "input": "다다음주 화요일 오전 9시 계약 미팅",
+    "latency_sec": 5.228,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "계약 미팅",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다다음주 화요일 오전 9시 계약 미팅",
+      "date_text": "다다음주 화요일",
+      "time_text": "오전 9시",
+      "remove_spans": [
+        "다다음주",
+        "화요일",
+        "오전 9시"
+      ]
+    },
+    "actual": {
+      "title": "계약 미팅",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_064",
+    "model": "gemma3:4b",
+    "input": "다다음주 수요일 오후 4시 회고",
+    "latency_sec": 5.104,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "회고",
+      "year": 2026,
+      "month": 5,
+      "day": 6,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다다음주 수요일 오후 4시 회고",
+      "date_text": "다다음주 수요일",
+      "time_text": "오후 4시",
+      "remove_spans": [
+        "다다음주 수요일 오후 4시 회고"
+      ]
+    },
+    "actual": {
+      "title": "회고",
+      "year": 2026,
+      "month": 5,
+      "day": 6,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_065",
+    "model": "gemma3:4b",
+    "input": "다다음주 금요일 저녁 8시 동창회",
+    "latency_sec": 5.341,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "동창회",
+      "year": 2026,
+      "month": 5,
+      "day": 8,
+      "dayOfWeek": "금요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다다음주 금요일 저녁 8시 동창회",
+      "date_text": "다다음주 금요일",
+      "time_text": "저녁 8시",
+      "remove_spans": [
+        "다다음주 금요일 저녁 8시",
+        "동창회"
+      ]
+    },
+    "actual": {
+      "title": "동창회",
+      "year": 2026,
+      "month": 5,
+      "day": 8,
+      "dayOfWeek": "금요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_066",
+    "model": "gemma3:4b",
+    "input": "4월 21일 오전 9시 세무 상담",
+    "latency_sec": 5.267,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "세무 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "4월 21일 오전 9시 세무 상담",
+      "date_text": "4월 21일",
+      "time_text": "오전 9시",
+      "remove_spans": [
+        "4월 21일",
+        "오전 9시"
+      ]
+    },
+    "actual": {
+      "title": "세무 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_067",
+    "model": "gemma3:4b",
+    "input": "4월 30일 오후 2시 보험 상담",
+    "latency_sec": 5.123,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "보험 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "4월 30일 오후 2시 보험 상담",
+      "date_text": "4월 30일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "4월 30일 오후 2시"
+      ]
+    },
+    "actual": {
+      "title": "보험 상담",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_068",
+    "model": "gemma3:4b",
+    "input": "5월 1일 오전 10시 근로자의 날 약속",
+    "latency_sec": 5.393,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "근로자의 날 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5월 1일 오전 10시 근로자의 날 약속",
+      "date_text": "5월 1일",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "5월 1일",
+        "오전 10시"
+      ]
+    },
+    "actual": {
+      "title": "근로자의 날 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_069",
+    "model": "gemma3:4b",
+    "input": "5월 5일 오후 3시 어린이날 행사",
+    "latency_sec": 5.28,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "어린이날 행사",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5월 5일 오후 3시 어린이날 행사",
+      "date_text": "5월 5일",
+      "time_text": "오후 3시",
+      "remove_spans": [
+        "5월 5일 오후 3시",
+        "어린이날 행사"
+      ]
+    },
+    "actual": {
+      "title": "어린이날 행사",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_070",
+    "model": "gemma3:4b",
+    "input": "5/7 저녁 6시 저녁 약속",
+    "latency_sec": 5.23,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "저녁 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 7,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5/7 저녁 6시 저녁 약속",
+      "date_text": "5/7",
+      "time_text": "저녁 6시",
+      "remove_spans": [
+        "5/7",
+        "저녁 6시",
+        "저녁 약속"
+      ]
+    },
+    "actual": {
+      "title": "저녁 약속",
+      "year": 2026,
+      "month": 5,
+      "day": 7,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_071",
+    "model": "gemma3:4b",
+    "input": "6월 1일 오전 8시 건강검진",
+    "latency_sec": 5.156,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 6,
+      "day": 1,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "6월 1일 오전 8시 건강검진",
+      "date_text": "6월 1일",
+      "time_text": "오전 8시",
+      "remove_spans": [
+        "6월 1일",
+        "오전 8시"
+      ]
+    },
+    "actual": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 6,
+      "day": 1,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_072",
+    "model": "gemma3:4b",
+    "input": "이번 달 24일 오후 5시 멘토링",
+    "latency_sec": 2.954,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "멘토링",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": null,
+      "date_text": null,
+      "time_text": null,
+      "remove_spans": []
+    },
+    "actual": {
+      "title": "이번 달 24일 오후 5시 멘토링",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_073",
+    "model": "gemma3:4b",
+    "input": "이번 달 29일 오전 11시 채용 면접",
+    "latency_sec": 5.383,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "채용 면접",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번 달 29일 오전 11시 채용 면접",
+      "date_text": "이번 달 29일",
+      "time_text": "오전 11시",
+      "remove_spans": [
+        "이번 달 29일",
+        "오전 11시"
+      ]
+    },
+    "actual": {
+      "title": "채용 면접",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_074",
+    "model": "gemma3:4b",
+    "input": "다음 달 4일 오후 2시 법무 검토",
+    "latency_sec": 5.168,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "법무 검토",
+      "year": 2026,
+      "month": 5,
+      "day": 4,
+      "dayOfWeek": "월요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음 달 4일 오후 2시 법무 검토",
+      "date_text": "다음 달 4일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "다음 달 4일",
+        "법무 검토"
+      ]
+    },
+    "actual": {
+      "title": "오후 2시",
+      "year": 2026,
+      "month": 5,
+      "day": 4,
+      "dayOfWeek": "월요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_075",
+    "model": "gemma3:4b",
+    "input": "다음 달 15일 저녁 7시 가족 모임",
+    "latency_sec": 5.26,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "가족 모임",
+      "year": 2026,
+      "month": 5,
+      "day": 15,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음 달 15일 저녁 7시 가족 모임",
+      "date_text": "다음 달 15일",
+      "time_text": "저녁 7시",
+      "remove_spans": [
+        "다음 달 15일",
+        "저녁 7시"
+      ]
+    },
+    "actual": {
+      "title": "가족 모임",
+      "year": 2026,
+      "month": 5,
+      "day": 15,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_076",
+    "model": "gemma3:4b",
+    "input": "오늘 책 반납",
+    "latency_sec": 4.299,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "오늘 책 반납",
+      "date_text": "오늘",
+      "time_text": null,
+      "remove_spans": [
+        "오늘"
+      ]
+    },
+    "actual": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_077",
+    "model": "gemma3:4b",
+    "input": "내일 이메일 정리",
+    "latency_sec": 4.598,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "이메일 정리",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "내일 이메일 정리",
+      "date_text": "내일",
+      "time_text": null,
+      "remove_spans": [
+        "내일",
+        "이메일 정리"
+      ]
+    },
+    "actual": {
+      "title": "이메일 정리",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_078",
+    "model": "gemma3:4b",
+    "input": "모레 장보기",
+    "latency_sec": 4.361,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "모레 장보기",
+      "date_text": "모레",
+      "time_text": null,
+      "remove_spans": [
+        "모레"
+      ]
+    },
+    "actual": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_079",
+    "model": "gemma3:4b",
+    "input": "이번주 금요일 자료 백업",
+    "latency_sec": 4.603,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "자료 백업",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "이번주 금요일 자료 백업",
+      "date_text": "이번주 금요일",
+      "time_text": null,
+      "remove_spans": [
+        "이번주 금요일"
+      ]
+    },
+    "actual": {
+      "title": "자료 백업",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_080",
+    "model": "gemma3:4b",
+    "input": "이번주 일요일 방 청소",
+    "latency_sec": 4.733,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "방 청소",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "이번주 일요일 방 청소",
+      "date_text": "이번주 일요일",
+      "time_text": null,
+      "remove_spans": [
+        "이번주 일요일",
+        "방 청소"
+      ]
+    },
+    "actual": {
+      "title": "방 청소",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_081",
+    "model": "gemma3:4b",
+    "input": "다음주 월요일 세금 확인",
+    "latency_sec": 4.577,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "세금 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "다음주 월요일 세금 확인",
+      "date_text": "다음주 월요일",
+      "time_text": null,
+      "remove_spans": [
+        "다음주 월요일"
+      ]
+    },
+    "actual": {
+      "title": "세금 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_082",
+    "model": "gemma3:4b",
+    "input": "다음주 목요일 여권 사진 준비",
+    "latency_sec": 4.615,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "여권 사진 준비",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "다음주 목요일 여권 사진 준비",
+      "date_text": "다음주 목요일",
+      "time_text": null,
+      "remove_spans": [
+        "여권 사진 준비"
+      ]
+    },
+    "actual": {
+      "title": "다음주 목요일",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_083",
+    "model": "gemma3:4b",
+    "input": "다음 달 3일 여행 가방 싸기",
+    "latency_sec": 4.738,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "여행 가방 싸기",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "다음 달 3일 여행 가방 싸기",
+      "date_text": "다음 달 3일",
+      "time_text": null,
+      "remove_spans": [
+        "여행 가방 싸기"
+      ]
+    },
+    "actual": {
+      "title": "다음 달 3일",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_084",
+    "model": "gemma3:4b",
+    "input": "4월 28일 병원 서류 챙기기",
+    "latency_sec": 4.931,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "병원 서류 챙기기",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "4월 28일 병원 서류 챙기기",
+      "date_text": "4월 28일",
+      "time_text": null,
+      "remove_spans": [
+        "병원 서류 챙기기"
+      ]
+    },
+    "actual": {
+      "title": "4월 28일",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_085",
+    "model": "gemma3:4b",
+    "input": "내일 오후 세시 반 안과 진료",
+    "latency_sec": 5.105,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "안과 진료",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 오후 세시 반 안과 진료",
+      "date_text": "내일",
+      "time_text": "오후 세시 반",
+      "remove_spans": [
+        "내일",
+        "오후 세시 반",
+        "안과 진료"
+      ]
+    },
+    "actual": {
+      "title": "안과 진료",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_086",
+    "model": "gemma3:4b",
+    "input": "오늘 오후 열두시 반 점심 회의",
+    "latency_sec": 5.158,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "점심 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 오후 열두시 반 점심 회의",
+      "date_text": "오늘",
+      "time_text": "오후 12시 30분",
+      "remove_spans": [
+        "오늘",
+        "오후 12시 30분"
+      ]
+    },
+    "actual": {
+      "title": "오후 열두시 반 점심 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_087",
+    "model": "gemma3:4b",
+    "input": "모레 오전 열한시 팀 커피",
+    "latency_sec": 4.97,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "팀 커피",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 오전 열한시 팀 커피",
+      "date_text": "모레",
+      "time_text": "오전 열한시",
+      "remove_spans": [
+        "모레",
+        "오전 열한시",
+        "팀 커피"
+      ]
+    },
+    "actual": {
+      "title": "팀 커피",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_088",
+    "model": "gemma3:4b",
+    "input": "다음주 금욜 오후 2시 세일즈콜",
+    "latency_sec": 5.115,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "세일즈콜",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 금욜 오후 2시 세일즈콜",
+      "date_text": "다음주 금욜",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "다음주 금욜 오후 2시 세일즈콜"
+      ]
+    },
+    "actual": {
+      "title": "세일즈콜",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_089",
+    "model": "gemma3:4b",
+    "input": "이번주 목욜 저녁 6시 책모임",
+    "latency_sec": 5.082,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "책모임",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 목욜 저녁 6시 책모임",
+      "date_text": "이번주 목욜",
+      "time_text": "저녁 6시",
+      "remove_spans": [
+        "이번주 목욜",
+        "저녁 6시"
+      ]
+    },
+    "actual": {
+      "title": "책모임",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_090",
+    "model": "gemma3:4b",
+    "input": "다다음주 일욜 아침 9시 등산",
+    "latency_sec": 5.333,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "등산",
+      "year": 2026,
+      "month": 5,
+      "day": 10,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다다음주 일욜 아침 9시 등산",
+      "date_text": "다다음주 일욜",
+      "time_text": "아침 9시",
+      "remove_spans": [
+        "다다음주",
+        "일욜",
+        "아침 9시",
+        "등산"
+      ]
+    },
+    "actual": {
+      "title": "등산",
+      "year": 2026,
+      "month": 5,
+      "day": 10,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_091",
+    "model": "gemma3:4b",
+    "input": "이번 주 토욜 오후 4시 사진 촬영",
+    "latency_sec": 5.15,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "사진 촬영",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번 주 토욜 오후 4시 사진 촬영",
+      "date_text": "이번 주 토욜",
+      "time_text": "오후 4시",
+      "remove_spans": [
+        "이번 주 토욜",
+        "오후 4시",
+        "사진 촬영"
+      ]
+    },
+    "actual": {
+      "title": "사진 촬영",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_092",
+    "model": "gemma3:4b",
+    "input": "다음 주 수욜 오전 10시 UX 테스트",
+    "latency_sec": 5.136,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "UX 테스트",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음 주 수욜 오전 10시 UX 테스트",
+      "date_text": "다음 주 수욜",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "다음 주 수욜 오전 10시",
+        "UX 테스트"
+      ]
+    },
+    "actual": {
+      "title": "UX 테스트",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_093",
+    "model": "gemma3:4b",
+    "input": "내일 14시 데이터 점검",
+    "latency_sec": 4.716,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "데이터 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 14시 데이터 점검",
+      "date_text": "내일",
+      "time_text": "14시",
+      "remove_spans": [
+        "내일 14시"
+      ]
+    },
+    "actual": {
+      "title": "데이터 점검",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_094",
+    "model": "gemma3:4b",
+    "input": "모레 09시 운영 회의",
+    "latency_sec": 4.941,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "운영 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 09시 운영 회의",
+      "date_text": "모레",
+      "time_text": "09시",
+      "remove_spans": [
+        "모레",
+        "09시",
+        "운영 회의"
+      ]
+    },
+    "actual": {
+      "title": "운영 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_095",
+    "model": "gemma3:4b",
+    "input": "4/22 16시 법인카드 정산",
+    "latency_sec": 2.948,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "법인카드 정산",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": null,
+      "date_text": null,
+      "time_text": null,
+      "remove_spans": []
+    },
+    "actual": {
+      "title": "4/22 16시 법인카드 정산",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_096",
+    "model": "gemma3:4b",
+    "input": "5/2 10시 차량 점검",
+    "latency_sec": 4.914,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "차량 점검",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5/2 10시 차량 점검",
+      "date_text": "5/2",
+      "time_text": "10시",
+      "remove_spans": [
+        "5/2 10시 차량 점검"
+      ]
+    },
+    "actual": {
+      "title": "차량 점검",
+      "year": 2026,
+      "month": 5,
+      "day": 2,
+      "dayOfWeek": "토요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_097",
+    "model": "gemma3:4b",
+    "input": "다음주 월요일 0시 로그 확인",
+    "latency_sec": 4.811,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "로그 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 월요일 0시 로그 확인",
+      "date_text": "다음주 월요일",
+      "time_text": "0시",
+      "remove_spans": [
+        "다음주 월요일 0시"
+      ]
+    },
+    "actual": {
+      "title": "로그 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_098",
+    "model": "gemma3:4b",
+    "input": "이번주 금요일 12시 점심 예약",
+    "latency_sec": 5.008,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "점심 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 금요일 12시 점심 예약",
+      "date_text": "이번주 금요일",
+      "time_text": "12시",
+      "remove_spans": [
+        "이번주 금요일",
+        "12시 점심"
+      ]
+    },
+    "actual": {
+      "title": "점심 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_099",
+    "model": "gemma3:4b",
+    "input": "오늘 오전 0시 서버 알림 확인",
+    "latency_sec": 4.925,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "서버 알림 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 오전 0시 서버 알림 확인",
+      "date_text": "오늘",
+      "time_text": "오전 0시",
+      "remove_spans": [
+        "오늘 오전 0시",
+        "서버 알림 확인"
+      ]
+    },
+    "actual": {
+      "title": "서버 알림 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_100",
+    "model": "gemma3:4b",
+    "input": "다음 달 1일 밤 9시 공연",
+    "latency_sec": 5.028,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "공연",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음 달 1일 밤 9시 공연",
+      "date_text": "다음 달 1일",
+      "time_text": "밤 9시",
+      "remove_spans": [
+        "다음 달 1일",
+        "밤 9시"
+      ]
+    },
+    "actual": {
+      "title": "공연",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_101",
+    "model": "gemma3:4b",
+    "input": "이번 달 27일 아침 7시 조찬",
+    "latency_sec": 5.346,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "조찬",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번 달 27일 아침 7시 조찬",
+      "date_text": "이번 달 27일",
+      "time_text": "아침 7시",
+      "remove_spans": [
+        "이번 달 27일",
+        "아침 7시",
+        "조찬"
+      ]
+    },
+    "actual": {
+      "title": "조찬",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_102",
+    "model": "gemma3:4b",
+    "input": "5월 10일 새벽 6시 낚시",
+    "latency_sec": 5.365,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "낚시",
+      "year": 2026,
+      "month": 5,
+      "day": 10,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5월 10일 새벽 6시 낚시",
+      "date_text": "5월 10일",
+      "time_text": "새벽 6시",
+      "remove_spans": [
+        "5월 10일",
+        "새벽 6시",
+        "낚시"
+      ]
+    },
+    "actual": {
+      "title": "낚시",
+      "year": 2026,
+      "month": 5,
+      "day": 10,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_103",
+    "model": "gemma3:4b",
+    "input": "다음주 화요일 낮 12시 반 도시락 미팅",
+    "latency_sec": 5.163,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "도시락 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 화요일 낮 12시 반 도시락 미팅",
+      "date_text": "다음주 화요일",
+      "time_text": "낮 12시 반",
+      "remove_spans": [
+        "다음주 화요일 낮 12시 반"
+      ]
+    },
+    "actual": {
+      "title": "도시락 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": 12,
+      "minute": 30,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_104",
+    "model": "gemma3:4b",
+    "input": "다다음주 목요일 오후 5시 예산 회의",
+    "latency_sec": 2.943,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "예산 회의",
+      "year": 2026,
+      "month": 5,
+      "day": 7,
+      "dayOfWeek": "목요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": null,
+      "date_text": null,
+      "time_text": null,
+      "remove_spans": []
+    },
+    "actual": {
+      "title": "다다음주 목요일 오후 5시 예산 회의",
+      "year": 2026,
+      "month": 5,
+      "day": 7,
+      "dayOfWeek": "목요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_105",
+    "model": "gemma3:4b",
+    "input": "월요일 오전 11시 인사팀 미팅",
+    "latency_sec": 5.061,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "인사팀 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "월요일 오전 11시 인사팀 미팅",
+      "date_text": null,
+      "time_text": "오전 11시",
+      "remove_spans": [
+        "월요일 오전 11시",
+        "인사팀 미팅"
+      ]
+    },
+    "actual": {
+      "title": "인사팀 미팅",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_106",
+    "model": "gemma3:4b",
+    "input": "화요일 오후 3시 마케팅 회의",
+    "latency_sec": 5.092,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "마케팅 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "화요일 오후 3시 마케팅 회의",
+      "date_text": null,
+      "time_text": "오후 3시",
+      "remove_spans": [
+        "화요일",
+        "오후 3시",
+        "마케팅 회의"
+      ]
+    },
+    "actual": {
+      "title": "마케팅 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_107",
+    "model": "gemma3:4b",
+    "input": "수요일 저녁 7시 피아노 레슨",
+    "latency_sec": 4.9,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "피아노 레슨",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "수요일 저녁 7시 피아노 레슨",
+      "date_text": null,
+      "time_text": "저녁 7시",
+      "remove_spans": [
+        "수요일",
+        "피아노 레슨"
+      ]
+    },
+    "actual": {
+      "title": "저녁 7시",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_108",
+    "model": "gemma3:4b",
+    "input": "목요일 아침 8시 조식 약속",
+    "latency_sec": 5.045,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "조식 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "목요일 아침 8시 조식 약속",
+      "date_text": "목요일",
+      "time_text": "아침 8시",
+      "remove_spans": [
+        "목요일 아침 8시",
+        "조식 약속"
+      ]
+    },
+    "actual": {
+      "title": "조식 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_109",
+    "model": "gemma3:4b",
+    "input": "금요일 밤 10시 영화 예매",
+    "latency_sec": 4.932,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "영화 예매",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "금요일 밤 10시 영화 예매",
+      "date_text": null,
+      "time_text": "밤 10시",
+      "remove_spans": [
+        "금요일 밤 10시",
+        "영화 예매"
+      ]
+    },
+    "actual": {
+      "title": "영화 예매",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_110",
+    "model": "gemma3:4b",
+    "input": "토요일 낮 12시 헤어샵",
+    "latency_sec": 4.999,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "헤어샵",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "토요일 낮 12시 헤어샵",
+      "date_text": "토요일",
+      "time_text": "낮 12시",
+      "remove_spans": [
+        "토요일 낮 12시",
+        "헤어샵"
+      ]
+    },
+    "actual": {
+      "title": "헤어샵",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_111",
+    "model": "gemma3:4b",
+    "input": "일요일 새벽 6시 낚시 출발",
+    "latency_sec": 4.96,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "낚시 출발",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "일요일 새벽 6시 낚시 출발",
+      "date_text": "일요일",
+      "time_text": "새벽 6시",
+      "remove_spans": [
+        "일요일 새벽 6시",
+        "낚시 출발"
+      ]
+    },
+    "actual": {
+      "title": "낚시 출발",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_112",
+    "model": "gemma3:4b",
+    "input": "화요일에 운동복 챙기기",
+    "latency_sec": 4.785,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "운동복 챙기기",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "화요일에 운동복 챙기기",
+      "date_text": "화요일",
+      "time_text": null,
+      "remove_spans": [
+        "화요일에",
+        "운동복 챙기기"
+      ]
+    },
+    "actual": {
+      "title": "운동복 챙기기",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_113",
+    "model": "gemma3:4b",
+    "input": "목요일에 보고서 읽기",
+    "latency_sec": 4.666,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "보고서 읽기",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "목요일에 보고서 읽기",
+      "date_text": "목요일",
+      "time_text": null,
+      "remove_spans": [
+        "목요일에",
+        "보고서 읽기"
+      ]
+    },
+    "actual": {
+      "title": "보고서 읽기",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_114",
+    "model": "gemma3:4b",
+    "input": "일요일에 냉장고 정리",
+    "latency_sec": 4.474,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "냉장고 정리",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "일요일에 냉장고 정리",
+      "date_text": "일요일",
+      "time_text": null,
+      "remove_spans": [
+        "일요일에"
+      ]
+    },
+    "actual": {
+      "title": "냉장고 정리",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_115",
+    "model": "gemma3:4b",
+    "input": "25일 오후 2시 결혼식 축가 연습",
+    "latency_sec": 5.168,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "결혼식 축가 연습",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "25일 오후 2시 결혼식 축가 연습",
+      "date_text": "25일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "25일 오후 2시",
+        "결혼식 축가 연습"
+      ]
+    },
+    "actual": {
+      "title": "결혼식 축가 연습",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_116",
+    "model": "gemma3:4b",
+    "input": "30일 오전 9시 비자 신청",
+    "latency_sec": 5.127,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "비자 신청",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "30일 오전 9시 비자 신청",
+      "date_text": "30일",
+      "time_text": "오전 9시",
+      "remove_spans": [
+        "30일",
+        "오전 9시",
+        "비자 신청"
+      ]
+    },
+    "actual": {
+      "title": "비자 신청",
+      "year": 2026,
+      "month": 4,
+      "day": 30,
+      "dayOfWeek": "목요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_117",
+    "model": "gemma3:4b",
+    "input": "1일 저녁 6시 월초 회식",
+    "latency_sec": 5.2,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "월초 회식",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "1일 저녁 6시 월초 회식",
+      "date_text": "월초",
+      "time_text": "저녁 6시",
+      "remove_spans": [
+        "1일",
+        "저녁 6시",
+        "월초",
+        "회식"
+      ]
+    },
+    "actual": {
+      "title": "회식",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_118",
+    "model": "gemma3:4b",
+    "input": "5일 오전 10시 어린이날 행사 준비",
+    "latency_sec": 5.241,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "어린이날 행사 준비",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5일 오전 10시 어린이날 행사 준비",
+      "date_text": "5일",
+      "time_text": "오전 10시",
+      "remove_spans": [
+        "5일",
+        "오전 10시",
+        "어린이날 행사 준비"
+      ]
+    },
+    "actual": {
+      "title": "어린이날 행사 준비",
+      "year": 2026,
+      "month": 5,
+      "day": 5,
+      "dayOfWeek": "화요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_119",
+    "model": "gemma3:4b",
+    "input": "20일 오후 4시 오늘 마감 확인",
+    "latency_sec": 5.109,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "오늘 마감 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "20일 오후 4시 오늘 마감 확인",
+      "date_text": "20일",
+      "time_text": "오후 4시",
+      "remove_spans": [
+        "20일",
+        "오후 4시",
+        "오늘"
+      ]
+    },
+    "actual": {
+      "title": "마감 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_120",
+    "model": "gemma3:4b",
+    "input": "22일에 병원 서류 제출",
+    "latency_sec": 4.534,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "병원 서류 제출",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "22일에 병원 서류 제출",
+      "date_text": "22일",
+      "time_text": null,
+      "remove_spans": [
+        "22일에"
+      ]
+    },
+    "actual": {
+      "title": "병원 서류 제출",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_121",
+    "model": "gemma3:4b",
+    "input": "28일에 선물 포장",
+    "latency_sec": 4.487,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "선물 포장",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "28일에 선물 포장",
+      "date_text": "28일에",
+      "time_text": null,
+      "remove_spans": [
+        "28일에"
+      ]
+    },
+    "actual": {
+      "title": "선물 포장",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_122",
+    "model": "gemma3:4b",
+    "input": "3일에 여행 보험 확인",
+    "latency_sec": 4.4,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "여행 보험 확인",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "3일에 여행 보험 확인",
+      "date_text": "3일",
+      "time_text": null,
+      "remove_spans": [
+        "3일에"
+      ]
+    },
+    "actual": {
+      "title": "여행 보험 확인",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_123",
+    "model": "gemma3:4b",
+    "input": "금욜 오후 5시 QA 리뷰",
+    "latency_sec": 2.938,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "QA 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": null,
+      "date_text": null,
+      "time_text": null,
+      "remove_spans": []
+    },
+    "actual": {
+      "title": "금요일 오후 5시 QA 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_124",
+    "model": "gemma3:4b",
+    "input": "수욜에 책 반납",
+    "latency_sec": 4.6,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "수욜에 책 반납",
+      "date_text": "수욜",
+      "time_text": null,
+      "remove_spans": [
+        "수욜에",
+        "책 반납"
+      ]
+    },
+    "actual": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_125",
+    "model": "gemma3:4b",
+    "input": "오늘 8시에 헬스 할거야",
+    "latency_sec": 4.818,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "헬스",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 8시에 헬스 할거야",
+      "date_text": "오늘",
+      "time_text": "8시에",
+      "remove_spans": [
+        "오늘 8시에 헬스 할거야"
+      ]
+    },
+    "actual": {
+      "title": "헬스",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": null,
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_126",
+    "model": "gemma3:4b",
+    "input": "내일 아침 7시에 조깅할 거야",
+    "latency_sec": 5.12,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "조깅",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 아침 7시에 조깅할 거야",
+      "date_text": "내일",
+      "time_text": "아침 7시에",
+      "remove_spans": [
+        "내일",
+        "아침 7시에",
+        "조깅할 거야"
+      ]
+    },
+    "actual": {
+      "title": "조깅",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_127",
+    "model": "gemma3:4b",
+    "input": "모레 오후 3시에 피부과 갈게",
+    "latency_sec": 5.041,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "피부과",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "모레 오후 3시에 피부과 갈게",
+      "date_text": "모레",
+      "time_text": "오후 3시",
+      "remove_spans": [
+        "모레",
+        "오후 3시에",
+        "갈게"
+      ]
+    },
+    "actual": {
+      "title": "피부과",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_128",
+    "model": "gemma3:4b",
+    "input": "이번주 금요일 저녁 7시에 동기 모임 갈 거야",
+    "latency_sec": 5.304,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "동기 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "이번주 금요일 저녁 7시에 동기 모임 갈 거야",
+      "date_text": "이번주 금요일",
+      "time_text": "저녁 7시에",
+      "remove_spans": [
+        "이번주 금요일",
+        "저녁 7시에",
+        "갈 거야"
+      ]
+    },
+    "actual": {
+      "title": "동기 모임",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 7,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_129",
+    "model": "gemma3:4b",
+    "input": "다음주 월요일 오전 10시에 팀 회의할게",
+    "latency_sec": 5.249,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "팀 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 월요일 오전 10시에 팀 회의할게",
+      "date_text": "다음주 월요일",
+      "time_text": "오전 10시에",
+      "remove_spans": [
+        "다음주 월요일 오전 10시에",
+        "할게"
+      ]
+    },
+    "actual": {
+      "title": "팀 회의",
+      "year": 2026,
+      "month": 4,
+      "day": 27,
+      "dayOfWeek": "월요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_130",
+    "model": "gemma3:4b",
+    "input": "다음주 수요일 오후 2시에 주간회의 잡아줘",
+    "latency_sec": 5.189,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "주간회의",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 수요일 오후 2시에 주간회의 잡아줘",
+      "date_text": "다음주 수요일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "다음주 수요일 오후 2시에",
+        "잡아줘"
+      ]
+    },
+    "actual": {
+      "title": "주간회의",
+      "year": 2026,
+      "month": 4,
+      "day": 29,
+      "dayOfWeek": "수요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_131",
+    "model": "gemma3:4b",
+    "input": "금요일 오후 5시에 QA 리뷰할 거야",
+    "latency_sec": 4.836,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "QA 리뷰",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "금요일 오후 5시에 QA 리뷰할 거야",
+      "date_text": null,
+      "time_text": "오후 5시에",
+      "remove_spans": [
+        "금요일",
+        "QA 리뷰할 거야"
+      ]
+    },
+    "actual": {
+      "title": "오후 5시에",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": 5,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_132",
+    "model": "gemma3:4b",
+    "input": "수요일 낮 12시에 팀 점심 먹을 거야",
+    "latency_sec": 5.09,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "팀 점심",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "수요일 낮 12시에 팀 점심 먹을 거야",
+      "date_text": "수요일",
+      "time_text": "낮 12시",
+      "remove_spans": [
+        "수요일 낮 12시에",
+        "먹을 거야"
+      ]
+    },
+    "actual": {
+      "title": "팀 점심",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_133",
+    "model": "gemma3:4b",
+    "input": "일요일 새벽 6시에 낚시 출발할게",
+    "latency_sec": 5.052,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "낚시 출발",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "일요일 새벽 6시에 낚시 출발할게",
+      "date_text": "일요일",
+      "time_text": "새벽 6시에",
+      "remove_spans": [
+        "일요일 새벽 6시에",
+        "출발할게"
+      ]
+    },
+    "actual": {
+      "title": "낚시 출발",
+      "year": 2026,
+      "month": 4,
+      "day": 26,
+      "dayOfWeek": "일요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_134",
+    "model": "gemma3:4b",
+    "input": "5월 1일 저녁 6시에 월초 회식할 거야",
+    "latency_sec": 5.391,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "월초 회식",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5월 1일 저녁 6시에 월초 회식할 거야",
+      "date_text": "5월 1일",
+      "time_text": "저녁 6시에",
+      "remove_spans": [
+        "5월 1일",
+        "월초 회식할 거야"
+      ]
+    },
+    "actual": {
+      "title": "저녁 6시에",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 6,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_135",
+    "model": "gemma3:4b",
+    "input": "5월 3일 오전 11시에 브런치 먹을래",
+    "latency_sec": 5.535,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "브런치",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "5월 3일 오전 11시에 브런치 먹을래",
+      "date_text": "5월 3일",
+      "time_text": "오전 11시",
+      "remove_spans": [
+        "5월 3일",
+        "오전 11시에",
+        "브런치 먹을래"
+      ]
+    },
+    "actual": {
+      "title": "브런치",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 11,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_136",
+    "model": "gemma3:4b",
+    "input": "오늘 오후 4시에 오늘 마감 확인할게",
+    "latency_sec": 4.811,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "오늘 마감 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 오후 4시에 오늘 마감 확인할게",
+      "date_text": "오늘",
+      "time_text": "오후 4시에",
+      "remove_spans": [
+        "오늘",
+        "마감 확인할게"
+      ]
+    },
+    "actual": {
+      "title": "오후 4시에 오늘",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 4,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_137",
+    "model": "gemma3:4b",
+    "input": "내일 운동할 거야",
+    "latency_sec": 4.545,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "운동",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "내일 운동할 거야",
+      "date_text": "내일",
+      "time_text": null,
+      "remove_spans": [
+        "내일",
+        "운동할 거야"
+      ]
+    },
+    "actual": {
+      "title": "운동",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_138",
+    "model": "gemma3:4b",
+    "input": "모레 책 반납해야 돼",
+    "latency_sec": 4.542,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "모레 책 반납해야 돼",
+      "date_text": "모레",
+      "time_text": null,
+      "remove_spans": [
+        "책 반납해야 돼"
+      ]
+    },
+    "actual": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_139",
+    "model": "gemma3:4b",
+    "input": "이번주 목요일 보고서 제출할게",
+    "latency_sec": 4.826,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "보고서 제출",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "이번주 목요일 보고서 제출할게",
+      "date_text": "이번주 목요일",
+      "time_text": null,
+      "remove_spans": [
+        "이번주 목요일",
+        "제출할게"
+      ]
+    },
+    "actual": {
+      "title": "보고서 제출",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_140",
+    "model": "gemma3:4b",
+    "input": "다음주 화요일 병원 서류 챙겨야 해",
+    "latency_sec": 4.888,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "병원 서류 챙기기",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "다음주 화요일 병원 서류 챙겨야 해",
+      "date_text": "다음주 화요일",
+      "time_text": null,
+      "remove_spans": [
+        "병원 서류 챙겨야 해"
+      ]
+    },
+    "actual": {
+      "title": "다음주 화요일",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_141",
+    "model": "gemma3:4b",
+    "input": "28일에 선물 포장해둘게",
+    "latency_sec": 4.715,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "선물 포장",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "28일에 선물 포장해둘게",
+      "date_text": "28일에",
+      "time_text": null,
+      "remove_spans": [
+        "선물 포장해둘게"
+      ]
+    },
+    "actual": {
+      "title": "28일에",
+      "year": 2026,
+      "month": 4,
+      "day": 28,
+      "dayOfWeek": "화요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_142",
+    "model": "gemma3:4b",
+    "input": "3일에 여행 보험 확인해야 돼",
+    "latency_sec": 4.633,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "여행 보험 확인",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "3일에 여행 보험 확인해야 돼",
+      "date_text": "3일",
+      "time_text": null,
+      "remove_spans": [
+        "3일에",
+        "확인해야 돼"
+      ]
+    },
+    "actual": {
+      "title": "여행 보험 확인",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_143",
+    "model": "gemma3:4b",
+    "input": "금욜에 장보기 할 거야",
+    "latency_sec": 4.667,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "금욜에 장보기 할 거야",
+      "date_text": "금욜",
+      "time_text": null,
+      "remove_spans": [
+        "금욜에",
+        "장보기 할 거야"
+      ]
+    },
+    "actual": {
+      "title": "장보기",
+      "year": 2026,
+      "month": 4,
+      "day": 24,
+      "dayOfWeek": "금요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_144",
+    "model": "gemma3:4b",
+    "input": "수욜에 책 반납할게",
+    "latency_sec": 4.693,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "intermediate": {
+      "source_text": "수욜에 책 반납할게",
+      "date_text": "수욜",
+      "time_text": null,
+      "remove_spans": [
+        "수욜에",
+        "반납할게"
+      ]
+    },
+    "actual": {
+      "title": "책 반납",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": null,
+      "minute": null,
+      "ampm": null,
+      "type": "TODO"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_145",
+    "model": "gemma3:4b",
+    "input": "오늘 밤 10시에 공항 픽업 갈 거야",
+    "latency_sec": 5.181,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "공항 픽업",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "오늘 밤 10시에 공항 픽업 갈 거야",
+      "date_text": "오늘",
+      "time_text": "밤 10시",
+      "remove_spans": [
+        "오늘 밤 10시에",
+        "공항 픽업 갈 거야"
+      ]
+    },
+    "actual": {
+      "title": "공항 픽업",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 10,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_146",
+    "model": "gemma3:4b",
+    "input": "내일 오후 1시에 점심 약속 잡아줘",
+    "latency_sec": 5.311,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "점심 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "내일 오후 1시에 점심 약속 잡아줘",
+      "date_text": "내일",
+      "time_text": "오후 1시",
+      "remove_spans": [
+        "내일",
+        "오후 1시에",
+        "점심 약속",
+        "잡아줘"
+      ]
+    },
+    "actual": {
+      "title": "점심 약속",
+      "year": 2026,
+      "month": 4,
+      "day": 21,
+      "dayOfWeek": "화요일",
+      "hour": 1,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_147",
+    "model": "gemma3:4b",
+    "input": "다다음주 금요일 저녁 8시에 동창회 갈 거야",
+    "latency_sec": 5.448,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "동창회",
+      "year": 2026,
+      "month": 5,
+      "day": 8,
+      "dayOfWeek": "금요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다다음주 금요일 저녁 8시에 동창회 갈 거야",
+      "date_text": "다다음주 금요일",
+      "time_text": "저녁 8시",
+      "remove_spans": [
+        "다다음주",
+        "금요일",
+        "저녁 8시에",
+        "갈 거야"
+      ]
+    },
+    "actual": {
+      "title": "동창회",
+      "year": 2026,
+      "month": 5,
+      "day": 8,
+      "dayOfWeek": "금요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_148",
+    "model": "gemma3:4b",
+    "input": "다음 달 1일 밤 9시에 공연 보러 갈게",
+    "latency_sec": 5.392,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "공연",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음 달 1일 밤 9시에 공연 보러 갈게",
+      "date_text": "다음 달 1일",
+      "time_text": "밤 9시",
+      "remove_spans": [
+        "다음 달 1일",
+        "밤 9시에",
+        "공연 보러 갈게"
+      ]
+    },
+    "actual": {
+      "title": "공연",
+      "year": 2026,
+      "month": 5,
+      "day": 1,
+      "dayOfWeek": "금요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_149",
+    "model": "gemma3:4b",
+    "input": "22일 오전 9시에 세탁물 수거할 거야",
+    "latency_sec": 4.974,
+    "json_valid": true,
+    "score": 0.8889,
+    "field_matches": {
+      "title": false,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [
+      "TITLE_EXTRACTION_FAILED"
+    ],
+    "expected": {
+      "title": "세탁물 수거",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "22일 오전 9시에 세탁물 수거할 거야",
+      "date_text": "22일 오전 9시",
+      "time_text": null,
+      "remove_spans": [
+        "세탁물 수거할 거야"
+      ]
+    },
+    "actual": {
+      "title": "22일 오전 9시에",
+      "year": 2026,
+      "month": 4,
+      "day": 22,
+      "dayOfWeek": "수요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_150",
+    "model": "gemma3:4b",
+    "input": "25일 오후 2시에 결혼식 갈 거야",
+    "latency_sec": 5.213,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "결혼식",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "25일 오후 2시에 결혼식 갈 거야",
+      "date_text": "25일",
+      "time_text": "오후 2시",
+      "remove_spans": [
+        "25일",
+        "오후 2시에",
+        "결혼식 갈 거야"
+      ]
+    },
+    "actual": {
+      "title": "결혼식",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 2,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_151",
+    "model": "gemma3:4b",
+    "input": "월요일 0시에 로그 확인할 거야",
+    "latency_sec": 4.837,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "로그 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "월요일 0시에 로그 확인할 거야",
+      "date_text": "월요일",
+      "time_text": "0시",
+      "remove_spans": [
+        "월요일 0시에",
+        "확인할 거야"
+      ]
+    },
+    "actual": {
+      "title": "로그 확인",
+      "year": 2026,
+      "month": 4,
+      "day": 20,
+      "dayOfWeek": "월요일",
+      "hour": 12,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_152",
+    "model": "gemma3:4b",
+    "input": "목요일 오전 8시에 건강검진 받을 거야",
+    "latency_sec": 5.026,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "목요일 오전 8시에 건강검진 받을 거야",
+      "date_text": "목요일",
+      "time_text": "오전 8시에",
+      "remove_spans": [
+        "목요일 오전 8시에",
+        "받을 거야"
+      ]
+    },
+    "actual": {
+      "title": "건강검진",
+      "year": 2026,
+      "month": 4,
+      "day": 23,
+      "dayOfWeek": "목요일",
+      "hour": 8,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_153",
+    "model": "gemma3:4b",
+    "input": "토요일 오후 3시에 미용실 예약할게",
+    "latency_sec": 5.065,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "미용실 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "토요일 오후 3시에 미용실 예약할게",
+      "date_text": "토요일",
+      "time_text": "오후 3시",
+      "remove_spans": [
+        "토요일 오후 3시에",
+        "예약할게"
+      ]
+    },
+    "actual": {
+      "title": "미용실 예약",
+      "year": 2026,
+      "month": 4,
+      "day": 25,
+      "dayOfWeek": "토요일",
+      "hour": 3,
+      "minute": 0,
+      "ampm": "오후",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  },
+  {
+    "case_id": "case_154",
+    "model": "gemma3:4b",
+    "input": "다음주 일요일 오전 9시에 등산 갈래",
+    "latency_sec": 5.098,
+    "json_valid": true,
+    "score": 1.0,
+    "field_matches": {
+      "title": true,
+      "year": true,
+      "month": true,
+      "day": true,
+      "dayOfWeek": true,
+      "hour": true,
+      "minute": true,
+      "ampm": true,
+      "type": true
+    },
+    "failures": [],
+    "expected": {
+      "title": "등산",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "intermediate": {
+      "source_text": "다음주 일요일 오전 9시에 등산 갈래",
+      "date_text": "다음주 일요일",
+      "time_text": "오전 9시",
+      "remove_spans": [
+        "다음주 일요일",
+        "오전 9시에"
+      ]
+    },
+    "actual": {
+      "title": "등산",
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "dayOfWeek": "일요일",
+      "hour": 9,
+      "minute": 0,
+      "ampm": "오전",
+      "type": "SCHEDULE"
+    },
+    "parse_error": null
+  }
+]
