@@ -1,0 +1,11 @@
+{
+  "case_count_requested": 30,
+  "case_count_completed": 30,
+  "success_count": 30,
+  "invalid_count": 0,
+  "avg_latency_sec": 7.073,
+  "avg_score": 0.9963,
+  "failure_counts": {
+    "TITLE_EXTRACTION_FAILED": 1
+  }
+}
