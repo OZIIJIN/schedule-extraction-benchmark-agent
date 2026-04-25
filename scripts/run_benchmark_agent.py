@@ -75,10 +75,11 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--version", default="v3", choices=["v2", "v3"])
     parser.add_argument("--run-pipeline", action="store_true", help="run benchmark/resolve/evaluate/report before analysis")
+    parser.add_argument("--runner-script", help="override benchmark runner script path")
     args = parser.parse_args()
 
     if args.run_pipeline:
-        run_script = f"scripts/run_benchmark_{args.version}.py"
+        run_script = args.runner_script or f"scripts/run_benchmark_{args.version}.py"
         resolve_script = f"scripts/resolve_{args.version}_outputs.py"
         evaluate_script = f"scripts/evaluate_results_{args.version}.py"
         report_script = f"scripts/write_report_{args.version}.py"
