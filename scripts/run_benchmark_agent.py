@@ -9,7 +9,7 @@ from typing import Any
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATE_PATH = BASE_DIR / "agent" / "state" / "benchmark_state.json"
+STATE_PATH = BASE_DIR / "state" / "benchmark_state.json"
 PYTHON = str(BASE_DIR / ".venv" / "bin" / "python")
 
 
@@ -38,8 +38,8 @@ def latest_report(version: str) -> Path:
 
 def update_state(version: str) -> None:
     state = load_json(STATE_PATH)
-    analysis_path = BASE_DIR / "agent" / "state" / f"latest_analysis_{version}.json"
-    plan_path = BASE_DIR / "agent" / "state" / f"next_action_{version}.json"
+    analysis_path = BASE_DIR / "state" / f"latest_analysis_{version}.json"
+    plan_path = BASE_DIR / "state" / f"next_action_{version}.json"
     analysis = load_json(analysis_path)
     plan = load_json(plan_path)
     raw_dir = BASE_DIR / "outputs" / version / "raw"

@@ -7,7 +7,7 @@ from typing import Any
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATE_PATH = BASE_DIR / "agent" / "state" / "benchmark_state.json"
+STATE_PATH = BASE_DIR / "state" / "benchmark_state.json"
 
 
 def load_state() -> dict[str, Any]:

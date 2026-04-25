@@ -53,26 +53,6 @@ description: 로컬 LLM의 한국어 일정 추출 성능을 비교, 개선, 재
     - 벤치마크 파이프라인 실행, 분석, 계획, 상태 갱신을 묶는 상위 오케스트레이터
 - 새 실험 버전을 만들 때는 기존 스크립트를 임의로 깨지 말고, 기존 버전 번호를 확인한 뒤 `_v2`, `_v3`, `_v4`처럼 다음 숫자로 증가시킨 별도 스크립트 또는 명확한 파이프라인 엔트리포인트를 추가한다.
 
-## 벤치마크 에이전트 루프
-
-이 프로젝트는 단순 실행 스크립트 외에 얇은 벤치마크 에이전트 코어를 가진다.
-
-- 상태 저장: `agent/state/benchmark_state.json`
-- 실패 분석: `scripts/analyze_failures.py`
-- 다음 액션 결정: `scripts/plan_next_action.py`
-- 상위 실행기: `scripts/run_benchmark_agent.py`
-
-기본 루프는 아래와 같다.
-
-1. 최신 실험 결과 읽기
-2. 실패 패턴 분석
-3. 다음 액션 결정
-4. 필요 시 `v2` 또는 `v3` 파이프라인 실행
-5. 평가 및 리포트 생성
-6. 상태 갱신
-
-이 루프는 자연어를 직접 해석하는 인터페이스가 아니라, 채팅형 에이전트가 안정적으로 벤치마크를 운영하기 위한 내부 실행 코어로 본다.
-
 ## 기본 실행 순서
 
 1. `python3 scripts/run_benchmark.py`
@@ -89,6 +69,13 @@ description: 로컬 LLM의 한국어 일정 추출 성능을 비교, 개선, 재
 5. 리포트 생성
 
 예를 들어 LLM이 중간표현을 먼저 뽑는 hybrid 실험에서는 LLM 원본 응답, 중간표현, resolver 결과, 평가 결과를 분리해서 저장한다.
+
+## 상태와 분석
+
+- 상태 저장: `state/benchmark_state.json`
+- 실패 분석: `scripts/analyze_failures.py`
+- 다음 액션 결정: `scripts/plan_next_action.py`
+- 상위 실행기: `scripts/run_benchmark_agent.py`
 
 ## 평가 기준
 
